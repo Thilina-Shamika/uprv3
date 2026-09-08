@@ -1,0 +1,19 @@
+.wrap {
+  position: relative;
+  z-index: 1;
+  /* Pulls the artwork up under the hero CTA. */
+  margin: clamp(-58px, -4vw, -12px) auto 0;
+  width: 100%;
+  max-width: 1060px;
+  padding: 0 clamp(18px, 3vw, 56px) clamp(24px, 4vw, 40px);
+  padding-left: var(--gutter);
+}
+
+.island {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Anchored above centre so the reef, not the frame edge, is what pushes in. */
+  transform-origin: 50% 42%;
+  will-change: transform;
+}

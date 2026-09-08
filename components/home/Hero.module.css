@@ -1,0 +1,61 @@
+.hero {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 52px clamp(20px, 3vw, 56px) 0;
+  /* Left inset clears the fixed badge rail; the right side keeps page padding,
+     which is what visually centres the copy against the rail. */
+  padding-left: var(--gutter);
+}
+
+.eyebrow {
+  margin: 0 0 22px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(40px, 5.6vw, 86px);
+  line-height: 1.03;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.sub {
+  margin: 26px auto 0;
+  max-width: 520px;
+  font-size: clamp(16px, 1.35vw, 22px);
+  line-height: 1.42;
+  font-weight: 400;
+  color: var(--muted-alt);
+  text-wrap: pretty;
+}
+
+.cta {
+  margin: 34px auto 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  height: 64px;
+  padding: 0 40px;
+  border-radius: 999px;
+  background: var(--green-deep);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  box-shadow: 0 16px 30px rgba(12, 61, 32, 0.28);
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.cta:hover {
+  background: var(--green-deep-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 22px 40px rgba(12, 61, 32, 0.34);
+  color: #ffffff;
+}

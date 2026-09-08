@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet"><style>body{margin:0;background:#fbfdfb}a{color:#1b3b2a;text-decoration:none}a:hover{color:#2f7d47}</style></helmet>
+<div style="position:relative;min-height:100vh;width:100%;overflow:hidden;font-family:Archivo,'Helvetica Neue',Helvetica,Arial,sans-serif;background:#f7faf6;padding-bottom:{{ pageBottom }}">
+  <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 10% 0%, #eaf3e6 0%, rgba(234,243,230,0) 60%),radial-gradient(90% 70% at 85% 10%, #f2f7f3 0%, rgba(242,247,243,0) 65%),radial-gradient(100% 80% at 50% 100%, #ffffff 0%, rgba(255,255,255,0) 70%),linear-gradient(180deg,#eef4ec 0%,#f8fbf8 45%,#ffffff 100%);pointer-events:none"></div>
+  <div style="position:absolute;left:-8%;top:8%;width:60%;height:55%;background:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(255,255,255,0));filter:blur(10px);pointer-events:none"></div>
+  <div style="position:absolute;right:-6%;bottom:-4%;width:70%;height:60%;background:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0));filter:blur(12px);pointer-events:none"></div>
+
+  <header style="position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px 32px;padding:clamp(18px,3vw,26px) clamp(18px,3vw,56px) 0;">
+    <a href="#" style="display:flex;align-items:center"><img src="uploads/pasted-1788891328753-0.png" alt="Use Plastic Responsibly — Inspired by Polydime" style="height:44px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;flex-wrap:wrap;gap:12px clamp(14px,3vw,44px);white-space:nowrap;justify-content:{{ navJustify }}">
+      <a href="#" style="font-size:15px;font-weight:500;color:#1d2a24;letter-spacing:.1px">Our Solutions</a>
+      <a href="#" style="font-size:15px;font-weight:500;color:#1d2a24;letter-spacing:.1px">Sustainability</a>
+      <a href="#" style="font-size:15px;font-weight:500;color:#1d2a24;letter-spacing:.1px">Industries</a>
+      <a href="#" style="font-size:15px;font-weight:500;color:#1d2a24;letter-spacing:.1px">About</a>
+      <a href="#" style="display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 clamp(20px,3vw,34px);border:1.5px solid #16324a;border-radius:999px;font-size:15px;font-weight:500;color:#16324a;background:rgba(255,255,255,.55);transition:background .25s,color .25s" style-hover="background:#16324a;color:#ffffff">Contact Us</a>
+    </nav>
+  </header>
+
+  <aside style="position:fixed;left:clamp(10px,2.6vw,50px);top:0;bottom:0;width:136px;align-items:center;padding:124px 0 24px;display:{{ railDesktop }};box-sizing:border-box;pointer-events:none;z-index:5" data-rail="">
+    <div style="pointer-events:auto;width:100%;display:flex;flex-direction:column;gap:clamp(8px,1.7vh,16px);background:#25332f;border-radius:26px;padding:clamp(10px,2vh,18px) 0;box-shadow:0 18px 40px rgba(24,44,34,.18)">
+      <sc-for list="{{ badges }}" as="badge" hint-placeholder-count="6">
+        <div onMouseEnter="{{ badge.enter }}" onMouseLeave="{{ badge.leave }}" style="position:relative;display:flex;align-items:center;justify-content:center;height:clamp(62px,10vh,96px);padding:6px 4px;box-sizing:border-box;border-radius:16px;cursor:pointer;transition:transform .28s cubic-bezier(.34,1.4,.5,1),background .24s ease,box-shadow .24s ease;transform-origin:left center;z-index:{{ badge.z }};transform:{{ badge.transform }}">
+          <div style="position:absolute;inset:0;border-radius:14px;background:#25332f;box-shadow:inset 0 0 0 1px #ffffff2e;transition:opacity .24s ease;opacity:{{ badge.hi }}"></div>
+          <img src="{{ badge.src }}" alt="{{ badge.name }}" style="position:relative;display:block;max-width:98%;max-height:100%;width:auto;height:auto;object-fit:contain">
+          <div style="position:absolute;left:calc(100% + 16px);top:50%;display:flex;align-items:center;gap:0;pointer-events:none;transform:translate(0,-50%) translateX({{ badge.tipX }});opacity:{{ badge.tipOpacity }};transition:opacity .22s ease,transform .28s cubic-bezier(.34,1.3,.5,1)">
+            <div style="width:10px;height:10px;background:#ffffff;transform:rotate(45deg);margin-right:-5px;box-shadow:-3px 3px 10px rgba(24,44,34,.10)"></div>
+            <div style="position:relative;background:#ffffff;border:1px solid rgba(24,44,34,.08);border-radius:16px;padding:14px 20px;box-shadow:0 18px 44px rgba(24,44,34,.16);min-width:210px">
+              <p style="margin:0 0 5px;font-size:15px;font-weight:600;letter-spacing:-.01em;color:#101512;white-space:nowrap">{{ badge.name }}</p>
+              <p style="margin:0;font-size:12.5px;line-height:1.45;font-weight:400;color:#69737d">{{ badge.desc }}</p>
+              <p style="margin:9px 0 0;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#2f7d3f;white-space:nowrap">{{ badge.tag }}</p>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </aside>
+
+  <nav aria-label="Certifications" style="position:fixed;left:0;right:0;bottom:0;z-index:6;padding:10px clamp(12px,4vw,20px) calc(10px + env(safe-area-inset-bottom));background:#25332f;box-shadow:0 -10px 30px rgba(24,44,34,.22);display:{{ railMobile }};grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:6px">
+    <sc-for list="{{ badges }}" as="badge" hint-placeholder-count="6">
+      <a href="#" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:56px;padding:6px 4px;border-radius:12px;text-decoration:none;background:#2e3d38">
+        <img src="{{ badge.src }}" alt="{{ badge.name }}" style="display:block;max-width:82%;max-height:32px;width:auto;height:auto;object-fit:contain">
+        <span style="font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#b7c8bd;text-align:center;line-height:1.1">{{ badge.name }}</span>
+      </a>
+    </sc-for>
+  </nav>
+
+  <section style="position:relative;z-index:2;text-align:center;padding:52px clamp(20px,3vw,56px) 0;padding-left:{{ gutter }}">
+    <p style="margin:0 0 22px;font-size:13px;font-weight:600;letter-spacing:.34em;color:#2f7d3f;text-transform:uppercase">Materials for a Circular Future</p>
+    <h1 style="margin:0;font-size:clamp(40px,5.6vw,86px);line-height:1.03;font-weight:600;letter-spacing:-.03em;color:#101512;text-wrap:balance">Rethinking Plastic.<br>Designing Tomorrow.</h1>
+    <p style="margin:26px auto 0;max-width:520px;font-size:clamp(16px,1.35vw,22px);line-height:1.42;font-weight:400;color:#5b6470;text-wrap:pretty">Smarter material solutions that help packaging stay useful, recoverable and responsible.</p>
+    <a href="#" style="margin:34px auto 0;display:inline-flex;align-items:center;gap:18px;height:64px;padding:0 40px;border-radius:999px;background:#0c3d20;color:#ffffff;font-size:20px;font-weight:400;box-shadow:0 16px 30px rgba(12,61,32,.28);transition:transform .25s,box-shadow .25s,background .25s" style-hover="background:#0f4d28;transform:translateY(-2px);box-shadow:0 22px 40px rgba(12,61,32,.34)">
+      <span>Explore Solutions</span>
+      <svg width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true"><path d="M1 7h23M18.5 1L24.8 7l-6.3 6" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
+  </section>
+
+  <div style="position:relative;z-index:1;margin:clamp(-58px,-4vw,-12px) auto 0;width:100%;max-width:1060px;padding:0 clamp(18px,3vw,56px) clamp(24px,4vw,40px);padding-left:{{ gutter }};box-sizing:border-box">
+    <img src="assets/island.png" alt="Cross-section of an ocean island: polluted water on one side, thriving reef on the other" style="display:block;width:100%;height:auto;transform-origin:50% 42%;will-change:transform;transform:{{ islandScale }}">
+  </div>
+
+  <section style="position:relative;z-index:2;padding:clamp(64px,10vw,110px) clamp(18px,4vw,72px);padding-left:{{ gutter }};overflow:hidden;background-image:url(assets/section-bg.png);background-repeat:no-repeat;background-position:center center;background-size:cover">
+    <div data-stats="" style="position:relative;max-width:1180px;margin:0 auto">
+
+      <div style="position:relative;z-index:1;text-align:center;transition:opacity .8s ease,transform .8s cubic-bezier(.22,.9,.3,1);opacity:{{ statsIn }}">
+        <p style="margin:0 0 18px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#2f7d3f">Measured Impact</p>
+        <h2 style="margin:0 auto;max-width:700px;font-size:clamp(34px,4.2vw,64px);line-height:1.02;font-weight:700;letter-spacing:-.035em;color:#0f2417;text-wrap:balance">Numbers that keep<br>the loop turning.</h2>
+        <p style="margin:22px auto 0;max-width:520px;font-size:17px;line-height:1.5;font-weight:400;color:#69737d;text-wrap:pretty">Real, measurable progress toward a circular economy for plastic — recorded, not rounded up.</p>
+
+        <p style="margin:clamp(48px,7vw,96px) 0 0;font-size:clamp(46px,7.4vw,112px);line-height:.94;font-weight:600;letter-spacing:-.04em;color:#0c3d20;font-variant-numeric:tabular-nums">{{ recovered }}</p>
+        <p style="margin:14px 0 0;font-size:clamp(20px,2vw,30px);font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:#2f7d3f">Kilograms</p>
+        <p style="margin:16px auto 0;max-width:400px;font-size:16px;line-height:1.5;font-weight:400;color:#69737d;text-wrap:pretty">of sustainable material put back into production, tracked kilogram by kilogram.</p>
+
+        <p style="margin:clamp(44px,6vw,88px) 0 0;font-size:11.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:#5f6b63">Across 22 partner programmes</p>
+        <a href="#" style="margin:22px auto 0;display:inline-flex;align-items:center;gap:14px;height:56px;padding:0 34px;border-radius:999px;background:#0c3d20;color:#ffffff;font-size:17px;font-weight:500;box-shadow:0 16px 32px rgba(12,61,32,.22);transition:transform .25s,box-shadow .25s,background .25s" style-hover="background:#0f4d28;transform:translateY(-2px);box-shadow:0 22px 42px rgba(12,61,32,.3)">
+          <span>See the ledger</span>
+          <svg width="22" height="12" viewBox="0 0 22 12" fill="none" aria-hidden="true"><path d="M1 6h19M15.2 1L20.8 6l-5.6 5" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+
+      <div style="position:relative;z-index:1;transition:opacity .9s ease .15s,transform .9s cubic-bezier(.22,.9,.3,1) .15s;opacity:{{ statsIn }};display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(24px,4vw,48px);margin:clamp(56px,7vw,96px) auto 0;max-width:1060px">
+        <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="3">
+          <div style="text-align:center;padding:6px clamp(8px,2vw,30px);border-left:{{ stat.rule }};border-top:{{ stat.ruleTop }};padding-top:{{ stat.padTop }}">
+            <p style="margin:0;font-size:clamp(32px,3.4vw,46px);line-height:1;font-weight:600;letter-spacing:-.035em;color:#0c3d20;font-variant-numeric:tabular-nums">{{ stat.value }}</p>
+            <p style="margin:12px 0 0;font-size:15.5px;font-weight:600;letter-spacing:-.01em;color:#101512">{{ stat.title }}</p>
+            <p style="margin:6px 0 0;font-size:14px;line-height:1.45;font-weight:400;color:#69737d;text-wrap:pretty">{{ stat.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <footer style="position:relative;z-index:2;background:#0c3d20;color:#ffffff;padding:clamp(48px,7vw,88px) clamp(18px,4vw,72px) 28px;padding-left:{{ gutter }}">
+    <div style="max-width:1180px;margin:0 auto;display:grid;align-items:start;gap:clamp(30px,4vw,56px);grid-template-columns:{{ footCols }}">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:360px">
+        <p style="margin:0;font-size:clamp(22px,2.2vw,30px);line-height:1.12;font-weight:700;letter-spacing:-.03em;color:#ffffff">Use plastic<br>responsibly.</p>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;font-weight:400;color:#9fb5a6">Smarter material solutions from Sri Lanka, engineered to keep packaging useful, recoverable and accountable.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <p style="margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#7fae8c">Solutions</p>
+        <a href="#" style="font-size:14.5px;color:#dce8e0;transition:color .2s" style-hover="color:#ffffff">PE</a>
+        <a href="#" style="font-size:14.5px;color:#dce8e0;transition:color .2s" style-hover="color:#ffffff">PE Plus</a>
+        <a href="#" style="font-size:14.5px;color:#dce8e0;transition:color .2s" style-hover="color:#ffffff">PE Plus Xtra</a>
+        <a href="#" style="font-size:14.5px;color:#dce8e0;transition:color .2s" style-hover="color:#ffffff">BioComp</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <p style="margin:0 0 4px;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#7fae8c">Company</p>
+        <a href="#" style="font-size:14.5px;color:#dce8e0;transition:color .2s" style-hover="color:#ffffff">About</a>
+        <a href="#" style="font-size:14.5px;color:#dce8e0;transition:color .2s" style-hover="color:#ffffff">Sustainability</a>
+        <a href="#" style="font-size:14.5px;color:#dce8e0;transition:color .2s" style-hover="color:#ffffff">Industries</a>
+        <a href="#" style="font-size:14.5px;color:#dce8e0;transition:color .2s" style-hover="color:#ffffff">Contact</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:360px">
+        <p style="margin:0;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#7fae8c">Stay in the loop</p>
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:#9fb5a6">Quarterly notes on recovery volumes and material research.</p>
+        <div style="display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.26);padding-bottom:10px">
+          <input type="email" placeholder="you@company.com" style="flex:1;min-width:0;background:transparent;border:0;outline:none;font:inherit;font-size:14.5px;color:#ffffff">
+          <button type="button" style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:0;border-radius:999px;background:#ffffff;cursor:pointer;transition:transform .2s" style-hover="transform:translateX(2px)">
+            <svg width="18" height="11" viewBox="0 0 18 11" fill="none" aria-hidden="true"><path d="M1 5.5h15M12 1l4.6 4.5L12 10" stroke="#0c3d20" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1180px;margin:clamp(40px,5vw,64px) auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
+      <p style="margin:0;font-size:12.5px;color:#8ba894">© 2026 Polydime. All rights reserved.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:22px">
+        <a href="#" style="font-size:12.5px;color:#8ba894;transition:color .2s" style-hover="color:#ffffff">Privacy</a>
+        <a href="#" style="font-size:12.5px;color:#8ba894;transition:color .2s" style-hover="color:#ffffff">Terms</a>
+        <a href="#" style="font-size:12.5px;color:#8ba894;transition:color .2s" style-hover="color:#ffffff">Certifications</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { hover: -1, count: 0, grown: false, sp: 0, m: typeof window !== 'undefined' && window.innerWidth < 820 };
+  _onResize = () => {
+    const m = window.innerWidth < 820;
+    if (m !== this.state.m || this.state.vw !== window.innerWidth) this.setState({ m: m, vw: window.innerWidth, hover: m ? -1 : this.state.hover });
+  };
+  _onScroll = () => {
+    const range = Math.max(320, window.innerHeight * 0.85);
+    const p = Math.max(0, Math.min(1, window.scrollY / range));
+    if (Math.abs(p - this.state.sp) > 0.004) this.setState({ sp: p });
+    if (!this._started) {
+      const el = document.querySelector('[data-stats]');
+      if (el) {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.8 && r.bottom > 0) this._runCount();
+      }
+    }
+  };
+  _watch = (tries = 0) => {
+    const el = document.querySelector('[data-stats]');
+    if (!el) {
+      if (tries < 40) this._retry = setTimeout(() => this._watch(tries + 1), 150);
+      return;
+    }
+    if (!('IntersectionObserver' in window)) { this._runCount(); return; }
+    this._io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { this._runCount(); this._io.disconnect(); }
+      });
+    }, { threshold: 0.28 });
+    this._io.observe(el);
+    this._ioSafety = setTimeout(() => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) this._runCount();
+    }, 2200);
+  };
+  _runCount = () => {
+    if (this._started) return;
+    this._started = true;
+    const target = 22346157, start = Date.now(), dur = 1800;
+    this.setState({ grown: true });
+    this._timer = setInterval(() => {
+      const t = Math.min(1, (Date.now() - start) / dur);
+      const e = 1 - Math.pow(1 - t, 3);
+      this.setState({ count: Math.round(target * e) });
+      if (t >= 1) clearInterval(this._timer);
+    }, 40);
+    this._safety = setTimeout(() => {
+      clearInterval(this._timer);
+      this.setState({ count: target });
+    }, dur + 500);
+  };
+  componentDidMount() {
+    this._watch();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onResize);
+    this._onScroll();
+    this._onResize();
+  }
+  componentWillUnmount() {
+    clearInterval(this._timer);
+    clearTimeout(this._safety);
+    clearTimeout(this._retry);
+    clearTimeout(this._ioSafety);
+    if (this._io) this._io.disconnect();
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onResize);
+  }
+  renderVals() {
+    const data = [
+      { src: 'assets/badge1.png', name: 'PE', desc: 'Recyclable polyethylene film for everyday packaging.', tag: 'Recyclable · upr.lk' },
+      { src: 'assets/badge2.png', name: 'PE Plus', desc: 'Strength-enhanced PE that cuts material use per pack.', tag: 'Reduced resin · upr.lk' },
+      { src: 'assets/badge3.png', name: 'PE Plus Xtra', desc: 'Our highest-performance recyclable film for demanding loads.', tag: 'High performance · upr.lk' },
+      { src: 'assets/badge4.png', name: 'BioComp', desc: 'Starch-based film, biodegradable and compostable.', tag: '100% certified' },
+      { src: 'assets/badge5.png', name: 'ECOshield', desc: 'Barrier protection engineered for recyclable structures.', tag: 'Barrier · recyclable' },
+      { src: 'assets/badge6.png', name: 'EcoPure', desc: 'Additive technology that accelerates end-of-life breakdown.', tag: 'Landfill accelerated' }
+    ];
+    const h = this.state.hover, g = this.state.grown;
+    const sp = this.state.sp, hair = '1px solid rgba(24,44,34,.12)';
+    const rule = this.state.m ? 'none' : hair;
+    const ruleTop = this.state.m ? hair : 'none';
+    const padTop = this.state.m ? '26px' : '6px';
+    const vw = this.state.vw || (typeof window !== 'undefined' ? window.innerWidth : 1440);
+    const gutterPx = this.state.m
+      ? Math.round(Math.min(32, Math.max(18, vw * 0.05))) + 'px'
+      : Math.round(Math.min(50, Math.max(10, vw * 0.026)) + 160) + 'px';
+    return {
+      islandScale: 'scale(' + (1 + sp * 0.34) + ')',
+      statsIn: g ? 1 : 0,
+      railDesktop: this.state.m ? 'none' : 'flex',
+      railMobile: this.state.m ? 'grid' : 'none',
+      gutter: gutterPx,
+      pageBottom: this.state.m ? '188px' : '0px',
+      navJustify: this.state.m ? 'center' : 'flex-end',
+      footCols: this.state.m
+        ? 'repeat(auto-fit,minmax(150px,1fr))'
+        : (vw < 1120 ? 'minmax(0,1.3fr) minmax(0,1fr)' : 'minmax(0,1.5fr) minmax(0,.8fr) minmax(0,.8fr) minmax(0,1.4fr)'),
+      islandOpacity: Math.max(0, 1 - sp * 1.25),
+      recovered: this.state.count.toLocaleString('en-US'),
+      stats: [
+        { value: '40%', title: 'Recycled content', desc: 'of our product is recycled plastic', rule: 'none', ruleTop: 'none', padTop: '6px' },
+        { value: '3', title: 'Recyclable structures', desc: 'PE, PE Plus & PE Plus Xtra', rule: rule, ruleTop: ruleTop, padTop: padTop },
+        { value: '20+', title: 'Years of expertise', desc: "shaping Sri Lanka's plastics industry", rule: rule, ruleTop: ruleTop, padTop: padTop }
+      ],
+      badges: data.map((b, i) => {
+        const d = h < 0 ? 9 : Math.abs(i - h);
+        const scale = d === 0 ? 1.34 : d === 1 ? 1.14 : d === 2 ? 1.04 : 1;
+        return {
+          ...b,
+          transform: 'scale(' + scale + ')',
+          hi: d === 0 ? 1 : 0,
+          z: d === 0 ? 3 : d === 1 ? 2 : 1,
+          tipOpacity: d === 0 ? 1 : 0,
+          tipX: d === 0 ? '0px' : '-10px',
+          enter: () => this.setState({ hover: i }),
+          leave: () => this.setState(s => (s.hover === i ? { hover: -1 } : null))
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
