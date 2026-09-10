@@ -74,7 +74,7 @@ export default function IslandStage() {
           <p ref={countRef} className={styles.count}>
             0
           </p>
-          <p className={styles.unit}>Kilograms</p>
+          <p className={styles.unit}>KILOGRAMS and Counting...</p>
           <p className={styles.note}>
             of sustainable material put back into production, tracked kilogram by
             kilogram.

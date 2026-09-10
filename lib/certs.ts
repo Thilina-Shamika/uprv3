@@ -1,3 +1,5 @@
+import { routes } from '@/lib/routes';
+
 export type Cert = {
   href: string;
   src: string;
@@ -13,7 +15,7 @@ export type Cert = {
 
 export const certs: Cert[] = [
   {
-    href: '/materials#cert-pe',
+    href: `${routes.products}#cert-pe`,
     src: '/assets/cert2.png',
     w: 2208,
     h: 1906,
@@ -23,7 +25,7 @@ export const certs: Cert[] = [
     tag: 'Recyclable · upr.lk',
   },
   {
-    href: '/materials#cert-40',
+    href: `${routes.products}#cert-40`,
     src: '/assets/cert7.png',
     w: 1435,
     h: 1280,
@@ -33,7 +35,7 @@ export const certs: Cert[] = [
     tag: 'Recycled content',
   },
   {
-    href: '/materials#cert-netzero',
+    href: `${routes.products}#cert-netzero`,
     src: '/assets/cert3.png',
     w: 1548,
     h: 1235,
@@ -43,7 +45,7 @@ export const certs: Cert[] = [
     tag: 'Net zero · upr.lk',
   },
   {
-    href: '/materials#cert-ecosprout',
+    href: `${routes.products}#cert-ecosprout`,
     src: '/assets/cert1.png',
     w: 3875,
     h: 1140,
@@ -53,7 +55,7 @@ export const certs: Cert[] = [
     tag: 'Bio-based · certified',
   },
   {
-    href: '/materials#cert-biocomp',
+    href: `${routes.products}#cert-biocomp`,
     src: '/assets/cert6.png',
     w: 2142,
     h: 872,
@@ -63,7 +65,7 @@ export const certs: Cert[] = [
     tag: '100% certified',
   },
   {
-    href: '/materials#cert-ecoshield',
+    href: `${routes.products}#cert-ecoshield`,
     src: '/assets/cert5.png',
     w: 1990,
     h: 1407,
@@ -73,7 +75,7 @@ export const certs: Cert[] = [
     tag: 'Barrier · recyclable',
   },
   {
-    href: '/materials#cert-ecopure',
+    href: `${routes.products}#cert-ecopure`,
     src: '/assets/cert4.png',
     w: 2345,
     h: 1658,

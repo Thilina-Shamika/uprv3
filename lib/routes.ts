@@ -4,7 +4,7 @@
  */
 export const routes = {
   home: '/',
-  materials: '/materials',
+  products: '/products',
   pledge: '/pledge',
   awards: '/awards',
   partners: '/partners',
@@ -13,7 +13,7 @@ export const routes = {
 } as const;
 
 export const primaryNav = [
-  { href: routes.materials, label: 'Materials' },
+  { href: routes.products, label: 'Products' },
   { href: routes.pledge, label: 'Our Pledge' },
   { href: routes.awards, label: 'Awards & Accolades' },
   { href: routes.partners, label: 'Partners' },

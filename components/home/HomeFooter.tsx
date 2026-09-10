@@ -5,7 +5,7 @@ import styles from './HomeFooter.module.css';
 
 const explore = [
   { href: routes.home, label: 'Home' },
-  { href: routes.materials, label: 'Materials' },
+  { href: routes.products, label: 'Products' },
   { href: routes.pledge, label: 'Our Pledge' },
   { href: routes.partners, label: 'Partners' },
   { href: routes.awards, label: 'Awards' },
@@ -13,7 +13,7 @@ const explore = [
   { href: routes.joinUs, label: 'Join Us' },
 ];
 
-const materials = [
+const products = [
   'PE Recyclable',
   'PE Plus',
   'PE Plus Xtra',
@@ -62,10 +62,10 @@ export default function HomeFooter() {
         </div>
 
         <div className={styles.col}>
-          <div className={styles.colTitle}>Materials</div>
+          <div className={styles.colTitle}>Products</div>
           <div className={styles.links}>
-            {materials.map((label) => (
-              <Link key={label} href={routes.materials} className={styles.link}>
+            {products.map((label) => (
+              <Link key={label} href={routes.products} className={styles.link}>
                 {label}
               </Link>
             ))}

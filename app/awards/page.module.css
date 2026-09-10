@@ -1,0 +1,9 @@
+.page {
+  /* The shared footer insets itself for the home page's fixed rail; this page
+     has no rail, so the gutter reverts to a normal page margin. */
+  --home-gutter: clamp(16px, 4vw, 52px);
+}
+
+.dash {
+  color: var(--lime);
+}

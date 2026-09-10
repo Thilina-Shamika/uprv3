@@ -22,10 +22,12 @@ export default function PageHero({
   crumb,
   image,
   eyebrow,
+  kicker,
   title,
   accent,
   lede,
   stats,
+  children,
   imageOpacity,
   scrim,
   titleCh,
@@ -33,11 +35,16 @@ export default function PageHero({
 }: {
   crumb: string;
   image: { src: string; width: number; height: number };
-  eyebrow?: { num: string; label: string };
+  /** Translucent over the photo by default; `solid` sets it on dark green. */
+  eyebrow?: { num: string; label: string; solid?: boolean };
+  /** Quieter alternative to the eyebrow pill: a short rule and a label. */
+  kicker?: string;
   title: string;
   accent: string;
   lede: string;
-  stats: HeroStat[];
+  stats?: HeroStat[];
+  /** Replaces the stats row, e.g. with jump links into the page. */
+  children?: ReactNode;
   imageOpacity?: number;
   scrim?: string;
   titleCh?: number;
@@ -68,25 +75,36 @@ export default function PageHero({
           <span className={styles.slash}>/</span>
           <span className={styles.here}>{crumb}</span>
         </div>
-        {eyebrow && <Eyebrow num={eyebrow.num} label={eyebrow.label} translucent />}
-        <h1 className={eyebrow ? styles.titleAfterEyebrow : styles.title}>
+        {eyebrow && (
+          <Eyebrow num={eyebrow.num} label={eyebrow.label} translucent={!eyebrow.solid} />
+        )}
+        {kicker && (
+          <div className={styles.kicker}>
+            <span className={styles.kickerRule} aria-hidden="true" />
+            <span className={styles.kickerText}>{kicker}</span>
+          </div>
+        )}
+        <h1 className={eyebrow || kicker ? styles.titleAfterEyebrow : styles.title}>
           {title} <span className={styles.accent}>{accent}</span>
         </h1>
         <p className={styles.lede}>{lede}</p>
-        <div className={styles.stats}>
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <div
-                className={`${stat.lime ? styles.statValueLime : styles.statValue} ${
-                  stat.tabular ? styles.tabular : ''
-                }`.trim()}
-              >
-                {stat.value}
+        {children}
+        {stats && (
+          <div className={styles.stats}>
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <div
+                  className={`${stat.lime ? styles.statValueLime : styles.statValue} ${
+                    stat.tabular ? styles.tabular : ''
+                  }`.trim()}
+                >
+                  {stat.value}
+                </div>
+                <div className={styles.statLabel}>{stat.label}</div>
               </div>
-              <div className={styles.statLabel}>{stat.label}</div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </header>
   );

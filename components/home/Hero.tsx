@@ -5,7 +5,7 @@ import styles from './Hero.module.css';
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      <p className={styles.eyebrow}>Materials for a Circular Future</p>
+      <p className={styles.eyebrow}>Products for a Circular Future</p>
       <h1 className={styles.title}>
         Rethinking Plastic.
         <br />
@@ -15,7 +15,7 @@ export default function Hero() {
         Smarter material solutions that help packaging stay useful, recoverable and
         responsible.
       </p>
-      <Link href={routes.materials} className={styles.cta}>
+      <Link href={routes.products} className={styles.cta}>
         <span>Explore Solutions</span>
         <svg width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true">
           <path

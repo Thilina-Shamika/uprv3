@@ -122,9 +122,57 @@
   text-wrap: pretty;
 }
 
-.note {
-  margin: 14px 0 0;
-  font-size: 13px;
-  line-height: 1.6;
+/* Outlined pill that fills dark green on hover, matching the page's CTAs. */
+.brochure {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 11px 18px 11px 14px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(13, 51, 36, 0.2);
+  background: #fff;
+  color: var(--deep);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s var(--ease);
+}
+
+.brochure:hover {
+  background: var(--deep);
+  border-color: var(--deep);
+  color: var(--lime);
+  transform: translateY(-2px);
+}
+
+.brochure:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.brochureIcon {
+  flex: none;
+  color: #1a7a4a;
+  transition: color 0.25s;
+}
+
+.brochure:hover .brochureIcon {
+  color: var(--lime);
+}
+
+.brochureMeta {
+  padding-left: 10px;
+  border-left: 1px solid rgba(13, 51, 36, 0.16);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: #8a9a90;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.brochure:hover .brochureMeta {
+  color: rgba(199, 242, 77, 0.75);
+  border-left-color: rgba(199, 242, 77, 0.3);
 }

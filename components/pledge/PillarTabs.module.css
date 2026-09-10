@@ -1,0 +1,68 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 2.2vw, 32px);
+  margin-top: clamp(24px, 2.8vw, 36px);
+  padding-top: clamp(20px, 2.4vw, 28px);
+  border-top: 1px solid var(--rule-light);
+}
+
+.tab {
+  position: relative;
+  flex: 1 1 180px;
+  min-width: min(100%, 160px);
+  padding: clamp(14px, 1.7vw, 18px) 0 0 clamp(14px, 1.6vw, 20px);
+  border-top: 2px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s var(--ease);
+}
+
+.tab:hover {
+  background: rgba(199, 242, 77, 0.16);
+  border-color: rgba(199, 242, 77, 0.5);
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+/* Lime spine wipes down the tab's left edge on hover. */
+.bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--lime);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s var(--ease);
+}
+
+.tab:hover .bar {
+  transform: scaleY(1);
+}
+
+.num {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #7ea28c;
+  font-variant-numeric: tabular-nums;
+}
+
+.name {
+  display: block;
+  font-weight: 700;
+  font-size: clamp(15.5px, 1.8vw, 19px);
+  letter-spacing: -0.03em;
+  margin-top: 12px;
+}
+
+.summary {
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--breadcrumb);
+  margin-top: 6px;
+  max-width: 22ch;
+}

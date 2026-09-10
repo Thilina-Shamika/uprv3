@@ -5,13 +5,11 @@ import JoinCta from '@/components/site/JoinCta';
 import HomeFooter from '@/components/home/HomeFooter';
 import SiteHeader from '@/components/site/SiteHeader';
 import PageHero, { HeroUnit } from '@/components/site/PageHero';
-import Compare from '@/components/materials/Compare';
-import Recovery from '@/components/materials/Recovery';
-import Certifications from '@/components/materials/Certifications';
+import Certifications from '@/components/products/Certifications';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Materials — Use Plastic Responsibly',
+  title: 'Products — Use Plastic Responsibly',
   description:
     'Three recyclable structures, one promise. PE, PE Plus and PE Plus Xtra, engineered to be recovered.',
 };
@@ -32,7 +30,7 @@ export default function Page() {
       <div className={styles.page}>
         <SiteHeader />
         <PageHero
-          crumb="Materials"
+          crumb="Products"
           image={{ src: '/assets/hero-pouch.jpg', width: 1752, height: 898 }}
           title="Three recyclable grades,"
           accent="one promise"
@@ -43,9 +41,7 @@ export default function Page() {
             { value: <>100<HeroUnit>%</HeroUnit></>, label: 'Designed for recovery' },
           ]}
         />
-        <Tape label="Materials" items={tapeItems} />
-        <Compare />
-        <Recovery />
+        <Tape label="Products" items={tapeItems} />
         <Certifications />
         <JoinCta
           title="Not sure which grade you need?"

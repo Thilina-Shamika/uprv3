@@ -1,0 +1,244 @@
+.ghost {
+  overflow: hidden;
+  padding: clamp(18px, 3vw, 34px) clamp(16px, 4vw, 52px) 0;
+  background: var(--stone);
+  line-height: 0.78;
+}
+
+.ghostWord {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  font-weight: 800;
+  font-size: clamp(64px, 14.5vw, 210px);
+  letter-spacing: -0.055em;
+  color: rgba(13, 51, 36, 0.085);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.section {
+  padding: clamp(46px, 5.5vw, 80px) clamp(16px, 4vw, 52px);
+  background: var(--stone);
+  border-top: 1px solid rgba(15, 50, 35, 0.09);
+  border-bottom: 1px solid rgba(15, 50, 35, 0.09);
+  /* Clears the sticky header when jumped to from "Send a message". */
+  scroll-margin-top: 70px;
+}
+
+.inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(28px, 4vw, 60px);
+  align-items: start;
+}
+
+.intro {
+  min-width: 0;
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(29px, 4.2vw, 48px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  margin: 16px 0 0;
+  color: var(--deep);
+}
+
+.mark {
+  font-weight: 800;
+  color: var(--green);
+  box-shadow: inset 0 -0.16em 0 rgba(199, 242, 77, 0.9);
+}
+
+.lede {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--body);
+  margin: 18px 0 0;
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  margin-top: 26px;
+  border-top: 1px solid rgba(15, 50, 35, 0.14);
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(15, 50, 35, 0.14);
+}
+
+.factLabel {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #5c6d63;
+}
+
+.factValue {
+  font-size: 14px;
+  color: var(--deep);
+}
+
+.factLink {
+  color: #1a7a4a;
+  font-weight: 700;
+}
+
+.card {
+  min-width: 0;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid rgba(15, 50, 35, 0.09);
+  box-shadow: 0 2px 12px rgba(13, 51, 36, 0.05);
+  padding: clamp(24px, 3vw, 38px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--body);
+}
+
+.req {
+  color: #1a7a4a;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(15, 50, 35, 0.16);
+  background: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--deep);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.input[aria-invalid='true'] {
+  border-color: #b4342a;
+}
+
+.input:focus {
+  border-color: #1a7a4a;
+  box-shadow: 0 0 0 3px rgba(199, 242, 77, 0.35);
+}
+
+.textarea {
+  composes: input;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.error {
+  font-size: 12px;
+  color: #b4342a;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  padding-top: 6px;
+  border-top: 1px solid rgba(15, 50, 35, 0.1);
+  margin-top: 4px;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px 15px 28px;
+  border: 0;
+  border-radius: 3px;
+  background: var(--deep);
+  color: var(--lime);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 15.5px;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), background 0.25s;
+}
+
+.submit:hover {
+  transform: translateY(-2px);
+  background: var(--green);
+}
+
+.submitIcon {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background: var(--lime);
+  color: var(--deep);
+  font-size: 13px;
+}
+
+.hint {
+  font-size: 12.5px;
+  color: #5c6d63;
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 4px;
+  background: rgba(199, 242, 77, 0.3);
+  border: 1px solid rgba(26, 122, 74, 0.28);
+}
+
+.noticeIcon {
+  flex: none;
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background: var(--deep);
+  color: var(--lime);
+  font-size: 13px;
+}
+
+.noticeText {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--deep);
+}
+
+.noticeText a {
+  color: #1a7a4a;
+}

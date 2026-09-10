@@ -1,0 +1,137 @@
+.ghost {
+  overflow: hidden;
+  padding: clamp(18px, 3vw, 34px) clamp(16px, 4vw, 52px) 0;
+  background: var(--deep);
+  line-height: 0.78;
+}
+
+.ghostWord {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  font-weight: 800;
+  font-size: clamp(64px, 14.5vw, 210px);
+  letter-spacing: -0.055em;
+  color: rgba(255, 255, 255, 0.07);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.section {
+  padding: clamp(46px, 5.5vw, 80px) clamp(16px, 4vw, 52px);
+  background: var(--deep);
+  color: #fff;
+}
+
+.inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--rule-light);
+}
+
+.headMain {
+  max-width: 660px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(29px, 4.2vw, 48px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  margin: 16px 0 0;
+}
+
+.accent {
+  font-weight: 800;
+  color: var(--lime);
+}
+
+.headCopy {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--foot);
+  text-wrap: pretty;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+  margin-top: clamp(28px, 3.4vw, 42px);
+}
+
+.trophy {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0f3a28;
+  border: 1px solid rgba(199, 242, 77, 0.18);
+  transition: border-color 0.3s, transform 0.3s var(--ease);
+}
+
+.trophy:hover {
+  border-color: rgba(199, 242, 77, 0.6);
+  transform: translateY(-4px);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #0b2c1e;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.year {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: var(--lime);
+  color: var(--deep);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  font-variant-numeric: tabular-nums;
+}
+
+.body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.rule {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.14);
+  margin: 14px 0;
+}
+
+.desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--breadcrumb);
+}

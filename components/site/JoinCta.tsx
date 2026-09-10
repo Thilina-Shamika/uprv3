@@ -10,6 +10,7 @@ export default function JoinCta({
   accent,
   lede,
   secondary = { href: routes.pledge, label: 'Our pledge' },
+  flushTop = false,
 }: {
   eyebrowNum?: string;
   /** Materials sets the pill on dark green; Partners lets the card show through. */
@@ -18,9 +19,11 @@ export default function JoinCta({
   accent: string;
   lede: string;
   secondary?: { href: string; label: string };
+  /** Drop the top padding when the section above already provides the gap. */
+  flushTop?: boolean;
 }) {
   return (
-    <section id="join" className={styles.section}>
+    <section id="join" className={flushTop ? styles.sectionFlush : styles.section}>
       <div className={styles.card} data-reveal="">
         <div className={styles.orbit} aria-hidden="true" />
         <div className={styles.body}>
