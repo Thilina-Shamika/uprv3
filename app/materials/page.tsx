@@ -3,8 +3,8 @@ import Reveal from '@/components/site/Reveal';
 import Tape from '@/components/site/Tape';
 import JoinCta from '@/components/site/JoinCta';
 import HomeFooter from '@/components/home/HomeFooter';
-import MaterialsHeader from '@/components/materials/MaterialsHeader';
-import MaterialsHero from '@/components/materials/MaterialsHero';
+import SiteHeader from '@/components/site/SiteHeader';
+import PageHero, { HeroUnit } from '@/components/site/PageHero';
 import Compare from '@/components/materials/Compare';
 import Recovery from '@/components/materials/Recovery';
 import Certifications from '@/components/materials/Certifications';
@@ -30,8 +30,19 @@ export default function Page() {
       {/* No certification rail on this page, so the shared footer's gutter
           collapses back to an ordinary page margin. */}
       <div className={styles.page}>
-        <MaterialsHeader />
-        <MaterialsHero />
+        <SiteHeader />
+        <PageHero
+          crumb="Materials"
+          image={{ src: '/assets/hero-pouch.jpg', width: 1752, height: 898 }}
+          title="Three recyclable grades,"
+          accent="one promise"
+          lede="PE, PE Plus and PE Plus Xtra cover everyday packaging through to metalised barrier film. Every structure is engineered to be recovered and used again."
+          stats={[
+            { value: '03', label: 'Recyclable grades', lime: true },
+            { value: <>~40<HeroUnit>%</HeroUnit></>, label: 'Recycled content' },
+            { value: <>100<HeroUnit>%</HeroUnit></>, label: 'Designed for recovery' },
+          ]}
+        />
         <Tape label="Materials" items={tapeItems} />
         <Compare />
         <Recovery />

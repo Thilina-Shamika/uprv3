@@ -213,3 +213,18 @@ export const partners: Partner[] = [
 /** The prototype shows six, then reveals three at a time. */
 export const PARTNER_PAGE = 3;
 export const PARTNER_INITIAL = 6;
+
+/** Card accent (bottom rule and legend swatch) by material type. */
+export const tagAccent: Record<string, string> = {
+  Recycled: '#c7f24d',
+  Biodegradable: '#8fd0a0',
+  Compostable: '#5fbec4',
+};
+
+/** Ledger totals by material type; they sum to the 22,346,157 kg headline. */
+export const ledgerTotals = [
+  { value: '21,903,204', label: 'Recycled kg', lead: true },
+  { value: '71,286', label: 'Biodegradable kg' },
+  { value: '371,667', label: 'Compostable kg' },
+  { value: '22', label: 'Partner programmes' },
+];

@@ -1,0 +1,64 @@
+.eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 6px 20px 6px 6px;
+  border-radius: 100px;
+  background: var(--deep);
+  box-shadow: 0 0 0 1px rgba(199, 242, 77, 0.28);
+  overflow: hidden;
+}
+
+/* Over a photo or the green Join card the pill turns translucent. */
+.translucent {
+  composes: eyebrow;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 100px;
+  background: var(--lime);
+  color: var(--deep);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.text {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+/* Masked conic gradient sweeping the 2px border. */
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--ang, 0deg),
+    rgba(199, 242, 77, 0) 0deg,
+    rgba(199, 242, 77, 0) 180deg,
+    rgba(199, 242, 77, 0.55) 280deg,
+    #eaff7a 320deg,
+    rgba(199, 242, 77, 0.55) 345deg,
+    rgba(199, 242, 77, 0) 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: eyespin 4s linear infinite;
+  pointer-events: none;
+}

@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { primaryNav, routes } from '@/lib/routes';
-import styles from './MaterialsHeader.module.css';
+import styles from './SiteHeader.module.css';
 
-export default function MaterialsHeader() {
+export default function SiteHeader() {
   return (
     <header className={styles.header}>
       <Link href={routes.home} className={styles.logoLink}>

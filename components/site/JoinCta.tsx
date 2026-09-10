@@ -1,16 +1,23 @@
 import Link from 'next/link';
+import Eyebrow from '@/components/site/Eyebrow';
+import { routes } from '@/lib/routes';
 import styles from './JoinCta.module.css';
 
 export default function JoinCta({
   eyebrowNum = '04',
+  translucentEyebrow = false,
   title,
   accent,
   lede,
+  secondary = { href: routes.pledge, label: 'Our pledge' },
 }: {
   eyebrowNum?: string;
+  /** Materials sets the pill on dark green; Partners lets the card show through. */
+  translucentEyebrow?: boolean;
   title: string;
   accent: string;
   lede: string;
+  secondary?: { href: string; label: string };
 }) {
   return (
     <section id="join" className={styles.section}>
@@ -18,25 +25,21 @@ export default function JoinCta({
         <div className={styles.orbit} aria-hidden="true" />
         <div className={styles.body}>
           <div className={styles.copy}>
-            <div className={styles.eyebrow}>
-              <span className={styles.eyebrowNum}>{eyebrowNum}</span>
-              <span className={styles.eyebrowText}>Take the pledge</span>
-              <span className={styles.eyebrowRing} aria-hidden="true" />
-            </div>
+            <Eyebrow num={eyebrowNum} label="Take the pledge" translucent={translucentEyebrow} />
             <h2 className={styles.title}>
               {title} <span className={styles.accent}>{accent}</span>.
             </h2>
             <p className={styles.lede}>{lede}</p>
           </div>
           <div className={styles.actions}>
-            <Link href="/join-us" className={styles.primary}>
+            <Link href={routes.joinUs} className={styles.primary}>
               Join Us
               <span className={styles.primaryArrow} aria-hidden="true">
                 →
               </span>
             </Link>
-            <Link href="/pledge" className={styles.secondary}>
-              Our pledge
+            <Link href={secondary.href} className={styles.secondary}>
+              {secondary.label}
             </Link>
           </div>
         </div>

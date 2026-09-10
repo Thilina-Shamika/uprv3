@@ -107,6 +107,11 @@ img {
   max-width: 100%;
 }
 
+/* Author `display` rules would otherwise beat the UA style for `hidden`. */
+[hidden] {
+  display: none !important;
+}
+
 /* ---- Scroll reveal --------------------------------------------------------
    The resting state lives in CSS so server-rendered markup never flashes
    before GSAP takes over. The inline script in the document head strips
