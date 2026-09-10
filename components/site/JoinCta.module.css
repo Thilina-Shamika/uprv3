@@ -1,0 +1,181 @@
+.section {
+  padding: clamp(46px, 5.5vw, 80px) clamp(16px, 4vw, 52px);
+}
+
+.card {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  border-radius: 6px;
+  background: var(--green);
+  border: 1px solid rgba(199, 242, 77, 0.22);
+  box-shadow: 0 20px 46px rgba(13, 51, 36, 0.22);
+  padding: clamp(36px, 5vw, 68px);
+  position: relative;
+  overflow: hidden;
+}
+
+.orbit {
+  position: absolute;
+  top: -90px;
+  right: -70px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(199, 242, 77, 0.28);
+  animation: spin 60s linear infinite;
+  pointer-events: none;
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.copy {
+  flex: 1 1 440px;
+  min-width: min(100%, 300px);
+}
+
+.eyebrow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 6px 20px 6px 6px;
+  border-radius: 100px;
+  background: var(--deep);
+  box-shadow: 0 0 0 1px rgba(199, 242, 77, 0.28);
+  overflow: hidden;
+}
+
+.eyebrowNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 100px;
+  background: var(--lime);
+  color: var(--deep);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.eyebrowText {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+/* A masked conic gradient sweeps the pill's 2px border. */
+.eyebrowRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--ang, 0deg),
+    rgba(199, 242, 77, 0) 0deg,
+    rgba(199, 242, 77, 0) 180deg,
+    rgba(199, 242, 77, 0.55) 280deg,
+    #eaff7a 320deg,
+    rgba(199, 242, 77, 0.55) 345deg,
+    rgba(199, 242, 77, 0) 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: eyespin 4s linear infinite;
+  pointer-events: none;
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(29px, 4.2vw, 48px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin: 16px 0 0;
+  color: #fff;
+  text-wrap: balance;
+}
+
+.accent {
+  font-weight: 800;
+  color: var(--lime);
+}
+
+.lede {
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--mist);
+  margin: 18px 0 0;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px 16px 30px;
+  border-radius: 3px;
+  background: var(--lime);
+  color: var(--deep);
+  font-weight: 700;
+  font-size: 16px;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s;
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(13, 51, 36, 0.3);
+  color: var(--deep);
+}
+
+.primaryArrow {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background: var(--deep);
+  color: var(--lime);
+  font-size: 14px;
+}
+
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 26px;
+  border-radius: 3px;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15.5px;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}

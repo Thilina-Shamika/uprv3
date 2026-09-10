@@ -1,0 +1,249 @@
+.section {
+  padding: clamp(50px, 6vw, 84px) clamp(16px, 4vw, 52px);
+  background: var(--stone);
+  border-top: 1px solid rgba(15, 50, 35, 0.09);
+  border-bottom: 1px solid rgba(15, 50, 35, 0.09);
+}
+
+.inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.head {
+  max-width: 640px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(29px, 4.2vw, 48px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  margin: 16px 0 0;
+  color: var(--deep);
+}
+
+.mark {
+  font-weight: 800;
+  color: var(--green);
+  box-shadow: inset 0 -0.16em 0 rgba(199, 242, 77, 0.9);
+}
+
+.blurb {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body);
+  margin: 16px 0 0;
+  text-wrap: pretty;
+}
+
+.grid {
+  margin-top: clamp(28px, 3.4vw, 42px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.4vw, 18px);
+  align-items: stretch;
+}
+
+.feature {
+  position: relative;
+  overflow: hidden;
+  flex: 1 1 400px;
+  min-width: min(100%, 300px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(24px, 3vw, 40px);
+  padding: clamp(24px, 3vw, 44px);
+  border-radius: 8px;
+  background: var(--deep);
+  color: #fff;
+}
+
+.orbit {
+  position: absolute;
+  top: -16%;
+  right: -14%;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(199, 242, 77, 0.16);
+  animation: spin 60s linear infinite;
+  pointer-events: none;
+}
+
+.kicker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tick {
+  width: 26px;
+  height: 1px;
+  background: var(--lime);
+}
+
+.kickerText {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+.bigWrap {
+  position: relative;
+}
+
+.big {
+  font-weight: 800;
+  font-size: clamp(46px, 7.6vw, 104px);
+  line-height: 0.86;
+  letter-spacing: -0.055em;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.bigCaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.unit {
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 26px);
+  letter-spacing: 0.02em;
+  color: var(--lime);
+}
+
+.unitNote {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--breadcrumb);
+  max-width: 30ch;
+}
+
+.featureFoot {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule-light);
+}
+
+.note {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7ea28c;
+}
+
+.ledger {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border-radius: 100px;
+  background: var(--lime);
+  color: var(--deep);
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: transform 0.25s;
+}
+
+.ledger:hover {
+  transform: translateY(-2px);
+  color: var(--deep);
+}
+
+.column {
+  flex: 1 1 340px;
+  min-width: min(100%, 290px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.4vw, 18px);
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+  padding: clamp(18px, 2.1vw, 26px) clamp(16px, 1.8vw, 22px);
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid rgba(15, 50, 35, 0.09);
+}
+
+.cardNum {
+  flex: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #93a49a;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardValue {
+  flex: 0 1 150px;
+  min-width: 120px;
+  font-weight: 700;
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  color: var(--deep);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.cardBody {
+  flex: 1 1 220px;
+  min-width: min(100%, 190px);
+}
+
+.cardTitle {
+  font-weight: 700;
+  font-size: clamp(15px, 1.6vw, 18px);
+  letter-spacing: -0.028em;
+  color: var(--deep);
+}
+
+.cardDesc {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #5b6b60;
+  margin-top: 6px;
+}
+
+.meter {
+  margin-top: 12px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(15, 50, 35, 0.1);
+  overflow: hidden;
+}
+
+.meterFill {
+  display: block;
+  height: 100%;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,254 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: var(--deep);
+  color: #fff;
+  padding: clamp(44px, 5.6vw, 86px) clamp(16px, 4vw, 52px) clamp(34px, 4vw, 58px);
+  border-top: 1px solid rgba(199, 242, 77, 0.18);
+}
+
+.orbit {
+  position: absolute;
+  top: -22%;
+  right: -6%;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(199, 242, 77, 0.12);
+  animation: spin 60s linear infinite;
+  pointer-events: none;
+}
+
+.ghost {
+  position: absolute;
+  left: clamp(16px, 4vw, 52px);
+  right: clamp(16px, 4vw, 52px);
+  bottom: clamp(10px, 1.4vw, 20px);
+  font-weight: 800;
+  font-size: clamp(56px, 12vw, 168px);
+  line-height: 0.7;
+  letter-spacing: -0.06em;
+  color: rgba(255, 255, 255, 0.045);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: clamp(22px, 2.6vw, 32px);
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tick {
+  width: 26px;
+  height: 1px;
+  background: var(--lime);
+}
+
+.kickerText {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+.jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--lime);
+}
+
+.jump:hover {
+  color: var(--lime);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(24px, 3.4vw, 64px);
+  align-items: end;
+  padding-top: clamp(20px, 2.4vw, 30px);
+  border-top: 2px solid rgba(199, 242, 77, 0.35);
+}
+
+.bigRow {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(10px, 1.4vw, 18px);
+}
+
+.big {
+  font-weight: 800;
+  font-size: clamp(76px, 15vw, 208px);
+  line-height: 0.78;
+  letter-spacing: -0.07em;
+  color: var(--lime);
+  font-variant-numeric: tabular-nums;
+}
+
+.pct {
+  font-weight: 700;
+  font-size: clamp(24px, 3.4vw, 54px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--lime);
+  padding-top: clamp(6px, 1vw, 14px);
+}
+
+.bigCaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: clamp(12px, 2vw, 26px);
+  margin-top: clamp(16px, 2vw, 26px);
+}
+
+.bigTitle {
+  font-weight: 700;
+  font-size: clamp(19px, 2.4vw, 30px);
+  letter-spacing: -0.035em;
+  color: #fff;
+}
+
+.bigDesc {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--breadcrumb);
+  max-width: 32ch;
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: clamp(22px, 2.6vw, 34px);
+}
+
+.ledger {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 100px;
+  background: var(--lime);
+  color: var(--deep);
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: transform 0.25s;
+}
+
+.ledger:hover {
+  transform: translateY(-2px);
+  color: var(--deep);
+}
+
+.note {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7ea28c;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  position: relative;
+  padding: clamp(16px, 1.8vw, 22px) 0 clamp(16px, 1.8vw, 22px) clamp(16px, 1.6vw, 22px);
+  border-top: 1px solid var(--rule-light);
+}
+
+/* Lime spine wipes down on hover. */
+.bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--lime);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.45s var(--ease);
+}
+
+.row:hover .bar {
+  transform: scaleY(1);
+}
+
+.rowHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.rowNum {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7ea28c;
+  font-variant-numeric: tabular-nums;
+}
+
+.rowValue {
+  font-weight: 800;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.plus {
+  font-size: 0.55em;
+  letter-spacing: 0;
+}
+
+.rowTitle {
+  font-weight: 700;
+  font-size: 14.5px;
+  letter-spacing: -0.024em;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.rowDesc {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #8fae99;
+  margin-top: 5px;
+  max-width: 28ch;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

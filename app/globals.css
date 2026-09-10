@@ -1,52 +1,38 @@
 /* ---------------------------------------------------------------------------
-   Design tokens lifted from the Claude Design prototype (Polydime Home.dc.html).
-   The prototype computed its responsive values in JS off window.innerWidth with
-   a single 820px breakpoint; here those become CSS custom properties so the
-   layout is correct on the server render, before any JS runs.
+   UPR design system, lifted from the Claude Design prototypes
+   (UPR Homepage v4.dc.html / Materials.dc.html). The prototypes inline every
+   style; these tokens name the values that actually recur so the components
+   below stay readable.
    --------------------------------------------------------------------------- */
 :root {
   /* Surfaces */
-  --page: #f7faf6;
-  --body: #fbfdfb;
-  --rail: #25332f;
-  --rail-tile: #2e3d38;
+  --cream: #f6f5ef;
+  --deep: #0d3324;
+  --lime: #c7f24d;
+  --green: #14663d;
+  --stone: #e9ece5;
+  --pale-lime: #e7f2c9;
 
   /* Ink */
-  --ink: #101512;
-  --ink-nav: #1d2a24;
-  --ink-heading: #0f2417;
-  --muted: #69737d;
-  --muted-alt: #5b6470;
-  --muted-eyebrow: #5f6b63;
+  --ink: #12261c;
+  --body: #3c4f44;
+  --muted: #6c8175;
+  --sage: #9dbcaa;
+  --mist: #d9ecdf;
+  --pale: #cfe3d6;
 
-  /* Brand */
-  --green: #2f7d3f;
-  --green-deep: #0c3d20;
-  --green-deep-hover: #0f4d28;
-  --navy: #16324a;
+  /* On-dark */
+  --foot: #bcd4c5;
+  --foot-dim: #7f9a8a;
+  --breadcrumb: #a9c4b2;
 
-  /* Footer */
-  --foot-label: #7fae8c;
-  --foot-link: #dce8e0;
-  --foot-body: #9fb5a6;
-  --foot-legal: #8ba894;
+  /* Rules */
+  --rule: rgba(15, 50, 35, 0.16);
+  --rule-soft: rgba(15, 50, 35, 0.12);
+  --rule-light: rgba(255, 255, 255, 0.16);
 
-  --hairline: 1px solid rgba(24, 44, 34, 0.12);
-
-  /* The fixed badge rail sits at --rail-left and is 136px wide, so page content
-     is inset by rail-left + 160px to clear it. Mobile drops the rail to a
-     bottom bar, so the inset collapses to an ordinary page margin. */
-  --rail-left: clamp(10px, 2.6vw, 50px);
-  --gutter: calc(clamp(10px, 2.6vw, 50px) + 160px);
-  --page-bottom: 0px;
-}
-
-@media (max-width: 819px) {
-  :root {
-    --gutter: clamp(18px, 5vw, 32px);
-    /* Clears the fixed 2-row certification bar. */
-    --page-bottom: 188px;
-  }
+  --page-max: 1240px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 * {
@@ -59,14 +45,16 @@ html {
 
 body {
   margin: 0;
-  background: var(--body);
+  background: var(--cream);
   color: var(--ink);
-  font-family: var(--font-archivo), 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, var(--font-archivo), Arial, sans-serif;
+  font-feature-settings: 'ss01', 'cv01';
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 a {
-  color: #1b3b2a;
+  color: #1a7a4a;
   text-decoration: none;
 }
 
@@ -74,12 +62,100 @@ a:hover {
   color: var(--green);
 }
 
+::selection {
+  background: var(--lime);
+  color: var(--deep);
+}
+
 img {
   max-width: 100%;
+}
+
+/* ---- Scroll reveal --------------------------------------------------------
+   The resting state lives in CSS so server-rendered markup never flashes
+   before GSAP takes over. The inline script in the document head strips
+   `.no-js` before first paint, so this only stays visible when JS is off. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+.no-js [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Keyframes ------------------------------------------------------------ */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tape {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes partnersL {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes partnersR {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes tapeblink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.15;
+  }
+}
+
+@property --ang {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes eyespin {
+  to {
+    --ang: 360deg;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

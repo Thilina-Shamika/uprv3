@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Design handoff bundles — reference prototypes, ~155MB.
+# Recoverable from the original export; not needed to build.
+design-source/

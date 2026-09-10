@@ -1,0 +1,94 @@
+.section {
+  padding: clamp(46px, 5.5vw, 80px) clamp(16px, 4vw, 52px);
+  background: var(--stone);
+  border-top: 1px solid rgba(15, 50, 35, 0.09);
+  border-bottom: 1px solid rgba(15, 50, 35, 0.09);
+}
+
+.inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(27px, 3.8vw, 44px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: var(--deep);
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.headCopy {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+.steps {
+  margin-top: clamp(22px, 2.6vw, 32px);
+  border-top: 1px solid rgba(15, 50, 35, 0.14);
+}
+
+.step {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  padding: clamp(18px, 2.2vw, 26px) 4px;
+  border-bottom: 1px solid rgba(15, 50, 35, 0.14);
+  transition: padding-left 0.3s var(--ease);
+}
+
+.step:hover {
+  padding-left: 12px;
+}
+
+.num {
+  flex: none;
+  width: 30px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #93a49a;
+  font-variant-numeric: tabular-nums;
+}
+
+.name {
+  flex: 0 1 220px;
+  min-width: min(100%, 180px);
+  font-weight: 700;
+  font-size: clamp(18px, 2vw, 24px);
+  letter-spacing: -0.032em;
+  color: var(--deep);
+}
+
+.desc {
+  flex: 1 1 320px;
+  min-width: min(100%, 260px);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #5c6d63;
+}
+
+@media (max-width: 760px) {
+  .step {
+    gap: 12px;
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,265 @@
+.ghost {
+  overflow: hidden;
+  padding: clamp(18px, 3vw, 34px) clamp(16px, 4vw, 52px) 0;
+  background: var(--cream);
+  line-height: 0.78;
+}
+
+.ghostWord {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  font-weight: 800;
+  font-size: clamp(64px, 14.5vw, 210px);
+  letter-spacing: -0.055em;
+  color: rgba(13, 51, 36, 0.085);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.section {
+  padding: 0 clamp(16px, 4vw, 52px) clamp(46px, 5.5vw, 80px);
+}
+
+.stack {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 1.8vw, 22px);
+}
+
+/* Each grade card re-themes itself through these tokens, so the markup below
+   stays identical across the dark, light and lime variants. */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: clamp(26px, 3.4vw, 52px);
+  scroll-margin-top: 110px;
+}
+
+.dark {
+  composes: card;
+  background: var(--deep);
+  --ghost: rgba(255, 255, 255, 0.07);
+  --badge-bg: var(--lime);
+  --badge-fg: var(--deep);
+  --kicker: var(--sage);
+  --title: #fff;
+  --lede: var(--pale);
+  --body: var(--sage);
+  --tag-bg: rgba(255, 255, 255, 0.1);
+  --tag-fg: #fff;
+  --cta-bg: var(--lime);
+  --cta-fg: var(--deep);
+  --plate: #f4f8f4;
+  --spec-rule: rgba(255, 255, 255, 0.16);
+  --spec-label: var(--sage);
+  --spec-value: #fff;
+}
+
+.light {
+  composes: card;
+  background: #fff;
+  --ghost: rgba(13, 51, 36, 0.06);
+  --badge-bg: var(--green);
+  --badge-fg: #fff;
+  --kicker: var(--muted);
+  --title: var(--deep);
+  --lede: #42564a;
+  --body: var(--muted);
+  --tag-bg: #f2f6f1;
+  --tag-fg: var(--deep);
+  --cta-bg: var(--deep);
+  --cta-fg: var(--lime);
+  --plate: #f2f6f1;
+  --spec-rule: rgba(15, 50, 35, 0.12);
+  --spec-label: var(--muted);
+  --spec-value: var(--deep);
+}
+
+.lime {
+  composes: card;
+  background: var(--pale-lime);
+  --ghost: rgba(13, 51, 36, 0.07);
+  --badge-bg: var(--green);
+  --badge-fg: #fff;
+  --kicker: #5d7052;
+  --title: var(--deep);
+  --lede: #39503f;
+  --body: #5d7052;
+  --tag-bg: rgba(255, 255, 255, 0.6);
+  --tag-fg: var(--deep);
+  --cta-bg: var(--deep);
+  --cta-fg: var(--lime);
+  --plate: rgba(255, 255, 255, 0.65);
+  --spec-rule: rgba(15, 50, 35, 0.16);
+  --spec-label: #5d7052;
+  --spec-value: var(--deep);
+}
+
+.index {
+  position: absolute;
+  top: clamp(-24px, -2vw, -10px);
+  right: clamp(8px, 2vw, 26px);
+  font-weight: 800;
+  font-size: clamp(96px, 15vw, 210px);
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: var(--ghost);
+  user-select: none;
+  pointer-events: none;
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(22px, 3vw, 48px);
+}
+
+.main {
+  flex: 1 1 340px;
+  min-width: min(100%, 280px);
+}
+
+.kickerRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 100px;
+  background: var(--badge-bg);
+  color: var(--badge-fg);
+  font-size: 11.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.kicker {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kicker);
+}
+
+.title {
+  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  margin: 16px 0 0;
+  color: var(--title);
+}
+
+.lede {
+  font-size: clamp(15.5px, 1.7vw, 18px);
+  line-height: 1.6;
+  color: var(--lede);
+  margin: 18px 0 0;
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+
+.detail {
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--body);
+  margin: 12px 0 0;
+  max-width: 48ch;
+  text-wrap: pretty;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: clamp(20px, 2.4vw, 26px);
+}
+
+.tag {
+  padding: 8px 14px;
+  border-radius: 100px;
+  background: var(--tag-bg);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--tag-fg);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(22px, 2.6vw, 30px);
+  padding: 13px 22px;
+  border-radius: 100px;
+  background: var(--cta-bg);
+  color: var(--cta-fg);
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.25s;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  color: var(--cta-fg);
+}
+
+.aside {
+  flex: 1 1 300px;
+  min-width: min(100%, 260px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.2vw, 26px);
+}
+
+.plate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(18px, 2vw, 26px);
+  border-radius: 6px;
+  background: var(--plate);
+}
+
+.markImg {
+  max-width: min(100%, 150px);
+  height: auto;
+  mix-blend-mode: multiply;
+  transition: transform 0.6s var(--ease);
+}
+
+.specs {
+  border-top: 1px solid var(--spec-rule);
+}
+
+.spec {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--spec-rule);
+}
+
+.specLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--spec-label);
+}
+
+.specValue {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--spec-value);
+}
