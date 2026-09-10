@@ -1,0 +1,68 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(247, 250, 246, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(24, 44, 34, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  padding: 14px clamp(18px, 3vw, 56px);
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: clamp(36px, 4.2vw, 44px);
+  width: auto;
+  display: block;
+  /* Drops the logo's white plate onto the tinted bar. */
+  mix-blend-mode: multiply;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px clamp(14px, 3vw, 44px);
+  white-space: nowrap;
+  justify-content: flex-end;
+}
+
+.navLink {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--home-ink-nav);
+  letter-spacing: 0.1px;
+}
+
+.navLink:hover {
+  color: var(--home-green);
+}
+
+.joinBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  padding: 0 clamp(20px, 3vw, 34px);
+  border: 1.5px solid var(--home-navy);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--home-navy);
+  background: rgba(255, 255, 255, 0.55);
+  transition: background 0.25s, color 0.25s;
+}
+
+.joinBtn:hover {
+  background: var(--home-navy);
+  color: #ffffff;
+}

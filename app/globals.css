@@ -35,6 +35,42 @@
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* ---------------------------------------------------------------------------
+   Polydime Home palette. The homepage prototype is a separate design language
+   from the Materials page above — lighter ground, forest green, no lime.
+   --------------------------------------------------------------------------- */
+:root {
+  --home-page: #f7faf6;
+  --home-ink: #101512;
+  --home-ink-nav: #1d2a24;
+  --home-green: #2f7d3f;
+  --home-green-deep: #0c3d20;
+  --home-green-deep-hover: #0f4d28;
+  --home-green-mid: #1a6b34;
+  --home-muted: #69737d;
+  --home-muted-alt: #5b6470;
+  --home-muted-eyebrow: #5f6b63;
+  --home-navy: #16324a;
+  --home-rail: #25332f;
+  --home-rail-tile: #2e3d38;
+  --home-hair: 1px solid rgba(24, 44, 34, 0.12);
+
+  /* The fixed certification rail is 136px wide at --rail-left, so page content
+     is inset by rail-left + 160px to clear it. Mobile swaps the rail for a
+     bottom bar, so the inset collapses to an ordinary page margin. */
+  --rail-left: clamp(10px, 2.6vw, 50px);
+  --home-gutter: calc(clamp(10px, 2.6vw, 50px) + 160px);
+  --home-page-bottom: 0px;
+}
+
+@media (max-width: 819px) {
+  :root {
+    --home-gutter: clamp(18px, 5vw, 32px);
+    /* Clears the fixed two-row certification bar. */
+    --home-page-bottom: 188px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

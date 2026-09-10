@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
-import Nav from '@/components/site/Nav';
-import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
 import Tape from '@/components/site/Tape';
 import JoinCta from '@/components/site/JoinCta';
+import HomeFooter from '@/components/home/HomeFooter';
+import MaterialsHeader from '@/components/materials/MaterialsHeader';
 import MaterialsHero from '@/components/materials/MaterialsHero';
 import Compare from '@/components/materials/Compare';
-import Grades from '@/components/materials/Grades';
 import Recovery from '@/components/materials/Recovery';
+import Certifications from '@/components/materials/Certifications';
+import styles from './page.module.css';
 
 export const metadata: Metadata = {
   title: 'Materials — Use Plastic Responsibly',
@@ -26,18 +27,22 @@ const tapeItems = [
 export default function Page() {
   return (
     <Reveal>
-      <Nav active="materials" />
-      <MaterialsHero />
-      <Tape label="Materials" items={tapeItems} />
-      <Compare />
-      <Grades />
-      <Recovery />
-      <JoinCta
-        title="Not sure which grade you need?"
-        accent="Ask us"
-        lede="Partner with us to reduce virgin plastic in the environment — and get your product featured on our platform as a champion of sustainability."
-      />
-      <Footer />
+      {/* No certification rail on this page, so the shared footer's gutter
+          collapses back to an ordinary page margin. */}
+      <div className={styles.page}>
+        <MaterialsHeader />
+        <MaterialsHero />
+        <Tape label="Materials" items={tapeItems} />
+        <Compare />
+        <Recovery />
+        <Certifications />
+        <JoinCta
+          title="Not sure which grade you need?"
+          accent="Ask us"
+          lede="Partner with us to reduce virgin plastic in the environment — and get your product featured on our platform as a champion of sustainability."
+        />
+        <HomeFooter />
+      </div>
     </Reveal>
   );
 }

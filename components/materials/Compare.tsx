@@ -1,11 +1,7 @@
 import Image from 'next/image';
 import styles from './Compare.module.css';
 
-const grades = [
-  { href: '#pe', label: 'PE' },
-  { href: '#pe-plus', label: 'PE Plus' },
-  { href: '#pe-plus-xtra', label: 'PE Plus Xtra' },
-];
+const grades = ['PE', 'PE Plus', 'PE Plus Xtra'];
 
 const rows = [
   { label: 'Structure', values: ['Single polymer', 'Multi-polymer laminate', 'Metalised barrier laminate'] },
@@ -47,10 +43,10 @@ export default function Compare() {
         <div className={styles.table} data-reveal="" data-reveal-delay="60">
           <div className={styles.headRow}>
             <span className={styles.colLabel}>Property</span>
-            {grades.map((g) => (
-              <a key={g.label} href={g.href} className={styles.colHead}>
-                {g.label}
-              </a>
+            {grades.map((label) => (
+              <span key={label} className={styles.colHead}>
+                {label}
+              </span>
             ))}
           </div>
           {rows.map((row) => (
