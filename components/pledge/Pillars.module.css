@@ -119,12 +119,6 @@
   --title: #fff;
   --lede: var(--pale);
   --detail: var(--sage);
-  --foot-rule: rgba(255, 255, 255, 0.16);
-  --plate: var(--pale-lime);
-  --plate-border: rgba(15, 50, 35, 0.1);
-  --spec-rule: rgba(255, 255, 255, 0.16);
-  --spec-label: var(--sage);
-  --spec-value: #fff;
 }
 
 .light {
@@ -137,12 +131,6 @@
   --title: var(--deep);
   --lede: #42564a;
   --detail: var(--muted);
-  --foot-rule: rgba(15, 50, 35, 0.12);
-  --plate: var(--pale-lime);
-  --plate-border: rgba(15, 50, 35, 0.1);
-  --spec-rule: rgba(15, 50, 35, 0.12);
-  --spec-label: var(--muted);
-  --spec-value: var(--deep);
 }
 
 .lime {
@@ -157,12 +145,6 @@
   --title: var(--deep);
   --lede: #39503f;
   --detail: #5d7052;
-  --foot-rule: rgba(15, 50, 35, 0.16);
-  --plate: var(--deep);
-  --plate-border: rgba(15, 50, 35, 0.18);
-  --spec-rule: rgba(15, 50, 35, 0.16);
-  --spec-label: #5d7052;
-  --spec-value: var(--deep);
 }
 
 .index {
@@ -247,23 +229,7 @@
   text-wrap: pretty;
 }
 
-.soon {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: clamp(20px, 2.4vw, 28px);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--detail);
-}
 
-.soonRule {
-  width: 22px;
-  height: 1px;
-  background: var(--foot-rule);
-}
 
 .aside {
   flex: 1 1 300px;
@@ -279,40 +245,21 @@
   justify-content: center;
   padding: clamp(22px, 2.4vw, 32px);
   border-radius: 6px;
-  background: var(--plate);
-  border: 1px solid var(--plate-border);
+  background: var(--deep);
+  /* A lime hairline keeps the plate legible on the dark cards too. */
+  border: 1px solid rgba(199, 242, 77, 0.22);
 }
 
 .icon {
   max-width: min(100%, 168px);
   height: auto;
+  /* Flattens each pledge mark to solid white on the dark plate. */
+  filter: brightness(0) invert(1);
 }
 
-.specs {
-  border-top: 1px solid var(--spec-rule);
-}
 
-.spec {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 14px;
-  padding: 13px 0;
-  border-bottom: 1px solid var(--spec-rule);
-}
 
-.specLabel {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--spec-label);
-}
 
-.specValue {
-  font-size: 13.5px;
-  line-height: 1.45;
-  color: var(--spec-value);
-}
 
 @media (max-width: 760px) {
   /* The rail stops being sticky and lays out as a scrollable row of chips. */

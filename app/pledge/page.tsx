@@ -5,7 +5,6 @@ import PageHero from '@/components/site/PageHero';
 import Tape from '@/components/site/Tape';
 import JoinCta from '@/components/site/JoinCta';
 import HomeFooter from '@/components/home/HomeFooter';
-import PillarTabs from '@/components/pledge/PillarTabs';
 import Strategy from '@/components/pledge/Strategy';
 import Pillars from '@/components/pledge/Pillars';
 import { routes } from '@/lib/routes';
@@ -35,12 +34,10 @@ export default function Page() {
           titleCh={16}
           lede="Using plastic responsibly is about the freedom and convenience of plastic products, used responsibly. We pledge to operate and improve the circular economy we have created for plastic."
           ledeCh={62}
-        >
-          <PillarTabs />
-        </PageHero>
+        />
         <Tape label="Our pledge" items={tapeItems} />
-        <Strategy />
         <Pillars />
+        <Strategy />
         <JoinCta
           eyebrowNum="03"
           translucentEyebrow

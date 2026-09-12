@@ -14,7 +14,6 @@ export type Pillar = {
   lede: string;
   detail: string;
   icon: { src: string; width: number; height: number };
-  specs: [string, string][];
 };
 
 export const pillars: Pillar[] = [
@@ -29,11 +28,6 @@ export const pillars: Pillar[] = [
     detail:
       'Our own supply chain covers collection, processing of plastic waste, processing of finished product, and distribution of recycle-based products into local and export markets.',
     icon: { src: '/assets/pledge/pledge-recycle.png', width: 795, height: 604 },
-    specs: [
-      ['Recycled content', '~40% of our product'],
-      ['Supply chain', 'Collection to distribution, in-house'],
-      ['Markets', 'Local and export'],
-    ],
   },
   {
     id: 'biodegradable',
@@ -46,11 +40,6 @@ export const pillars: Pillar[] = [
     detail:
       "These have become an essential part of our customers' lifestyle — from grow bags to lunch sheets that break down naturally at end of life.",
     icon: { src: '/assets/pledge/pledge-biodegradable.png', width: 795, height: 636 },
-    specs: [
-      ['Base material', 'Starch-based'],
-      ['Certification', '100% biodegradable and compostable'],
-      ['End of life', 'Decomposes naturally'],
-    ],
   },
   {
     id: 'netzero',
@@ -63,11 +52,6 @@ export const pillars: Pillar[] = [
     detail:
       'Polydime has made significant investment in this area, so that certain products can be manufactured using renewably sourced energy.',
     icon: { src: '/assets/pledge/pledge-netzero.png', width: 591, height: 540 },
-    specs: [
-      ['Focus', 'Renewable energy sourcing'],
-      ['Status', 'Significant investment made'],
-      ['Applies to', 'Selected product lines'],
-    ],
   },
   {
     id: 'educate',
@@ -80,10 +64,5 @@ export const pillars: Pillar[] = [
     detail:
       'We explain the benefits of plastic, and how it is not an environmental hazard when it is disposed of properly.',
     icon: { src: '/assets/pledge/pledge-educate.png', width: 763, height: 572 },
-    specs: [
-      ['Audience', 'General public and industry'],
-      ['Topics', 'Uses, benefits, correct disposal'],
-      ['Channel', 'Journal, partners, packaging'],
-    ],
   },
 ];

@@ -13,32 +13,18 @@
   display: block;
   width: 100%;
   height: auto;
-  /* Anchored above centre so the reef, not the frame edge, pushes in. */
-  transform-origin: 50% 42%;
-  will-change: transform;
 }
 
-/* Above 1150px the card floats over the artwork; below, it stacks under it. */
+/* Tucked into the artwork's bottom-right corner, kept small and clear of the
+   island itself so only the empty water/sky at the edge is covered. */
 .card {
   position: absolute;
-  right: clamp(0px, 1vw, 20px);
-  top: clamp(56px, 7vw, 96px);
+  right: clamp(0px, 1.5vw, 26px);
+  bottom: clamp(10px, 2vw, 34px);
   z-index: 3;
-  width: clamp(270px, 25vw, 370px);
+  width: clamp(210px, 19vw, 286px);
   max-width: 100%;
   margin: 0;
-  will-change: transform;
-}
-
-.tail {
-  position: absolute;
-  left: -11px;
-  top: 48px;
-  width: 24px;
-  height: 24px;
-  background: rgba(255, 255, 255, 0.72);
-  transform: rotate(45deg);
-  border-radius: 5px;
 }
 
 .panel {
@@ -47,14 +33,14 @@
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 28px;
-  padding: clamp(20px, 2vw, 30px) clamp(22px, 2.2vw, 34px);
+  border-radius: 22px;
+  padding: clamp(15px, 1.5vw, 21px) clamp(16px, 1.6vw, 23px);
   box-shadow: 0 26px 60px rgba(24, 44, 34, 0.14);
 }
 
 .count {
   margin: 0;
-  font-size: clamp(30px, 3vw, 46px);
+  font-size: clamp(24px, 2.3vw, 34px);
   line-height: 0.98;
   font-weight: 600;
   letter-spacing: -0.04em;
@@ -63,8 +49,8 @@
 }
 
 .unit {
-  margin: 12px 0 0;
-  font-size: clamp(16px, 1.35vw, 20px);
+  margin: 9px 0 0;
+  font-size: clamp(12px, 1vw, 14px);
   font-weight: 600;
   letter-spacing: 0.02em;
   /* Mixed case is deliberate — "KILOGRAMS and Counting..." is set as written. */
@@ -72,25 +58,21 @@
 }
 
 .note {
-  margin: 14px 0 0;
-  font-size: clamp(14px, 1.15vw, 16px);
-  line-height: 1.5;
+  margin: 10px 0 0;
+  font-size: clamp(12px, 0.95vw, 13.5px);
+  line-height: 1.45;
   font-weight: 400;
   color: var(--home-muted);
   text-wrap: pretty;
 }
 
+/* Too little room to overlay without hiding the island, so it stacks under. */
 @media (max-width: 1149px) {
   .card {
     position: relative;
     right: auto;
-    top: auto;
+    bottom: auto;
     width: 100%;
     margin: 18px 0 0;
-    transform: none !important;
-  }
-
-  .tail {
-    display: none;
   }
 }

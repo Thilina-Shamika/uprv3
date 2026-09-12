@@ -62,3 +62,12 @@
   animation: eyespin 4s linear infinite;
   pointer-events: none;
 }
+
+/* Declared here, not in globals: CSS Modules rewrites animation names used in
+   a module, so the keyframes must live in the same file to resolve.
+   (`--ang` itself stays registered globally via @property.) */
+@keyframes eyespin {
+  to {
+    --ang: 360deg;
+  }
+}

@@ -5,11 +5,11 @@ import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import Eyebrow from '@/components/site/Eyebrow';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
-import { ledgerTotals, partners, tagAccent } from '@/lib/partners';
+import { ledger, tagAccent } from '@/lib/partners';
 import styles from './Milestones.module.css';
 
 /** Everything a visitor might type: name, place, product, type or figure. */
-const haystacks = partners.map((p) =>
+const haystacks = ledger.map((p) =>
   [p.rank, p.tag, p.name, p.country, p.desc, p.num, 'kilograms'].join(' ').toLowerCase(),
 );
 
@@ -52,17 +52,6 @@ export default function Milestones() {
               Amount of sustainable material used to date in our production, by partner
               and product.
             </p>
-          </div>
-
-          <div className={styles.totals} data-reveal="" data-reveal-delay="60">
-            <div className={styles.totalsRow}>
-              {ledgerTotals.map((total) => (
-                <div key={total.label} className={total.lead ? styles.leadTile : styles.tile}>
-                  <div className={styles.tileValue}>{total.value}</div>
-                  <div className={styles.tileLabel}>{total.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className={styles.searchRow}>
@@ -108,7 +97,7 @@ export default function Milestones() {
 
           <div ref={listRef} className={styles.list}>
             {shown === 0 && <div className={styles.empty}>No partner matches that search.</div>}
-            {partners.map((partner, i) => (
+            {ledger.map((partner, i) => (
               <div
                 key={partner.rank}
                 className={styles.card}

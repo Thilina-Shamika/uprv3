@@ -10,8 +10,6 @@ const RECOVERED_KG = 22346157;
 
 export default function IslandStage() {
   const stageRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
   const countRef = useRef<HTMLParagraphElement>(null);
 
   useGSAP(
@@ -37,21 +35,6 @@ export default function IslandStage() {
         },
       });
 
-      // Numeric start/end are absolute scroll positions, matching the
-      // prototype's `scrollY / max(320, innerHeight * 0.85)` ramp.
-      const range = () => Math.max(320, window.innerHeight * 0.85);
-      const scrub = { start: 0, end: range, scrub: true, invalidateOnRefresh: true };
-
-      gsap.fromTo(imgRef.current, { scale: 1 }, { scale: 1.34, ease: 'none', scrollTrigger: scrub });
-
-      // Only the floating variant parallaxes; stacked, it sits in flow.
-      gsap.matchMedia().add('(min-width: 1150px)', () => {
-        gsap.fromTo(
-          cardRef.current,
-          { y: 0 },
-          { y: -150, ease: 'none', scrollTrigger: { ...scrub } },
-        );
-      });
     },
     { scope: stageRef },
   );
@@ -59,7 +42,6 @@ export default function IslandStage() {
   return (
     <div ref={stageRef} className={styles.stage}>
       <Image
-        ref={imgRef}
         src="/assets/island.png"
         alt="Cross-section of an ocean island: polluted water on one side, thriving reef on the other"
         width={835}
@@ -68,8 +50,7 @@ export default function IslandStage() {
         className={styles.island}
         preload
       />
-      <div ref={cardRef} className={styles.card}>
-        <div className={styles.tail} aria-hidden="true" />
+      <div className={styles.card}>
         <div className={styles.panel}>
           <p ref={countRef} className={styles.count}>
             0

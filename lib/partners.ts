@@ -228,3 +228,17 @@ export const ledgerTotals = [
   { value: '371,667', label: 'Compostable kg' },
   { value: '22', label: 'Partner programmes' },
 ];
+
+/** Polydime's own production lines, as opposed to partner brands. */
+const isInHouse = (p: Partner) => p.name === 'Polydime Plastics';
+const kg = (value: string) => Number(value.replace(/,/g, ''));
+
+/**
+ * Display order for the Partners page: buyers first, largest volume to
+ * smallest, with Polydime's own lines at the bottom. Ranks are renumbered to
+ * match the order shown, so the column reads 01 downwards.
+ */
+export const ledger: Partner[] = [
+  ...partners.filter((p) => !isInHouse(p)).sort((a, b) => kg(b.num) - kg(a.num)),
+  ...partners.filter(isInHouse).sort((a, b) => kg(b.num) - kg(a.num)),
+].map((partner, i) => ({ ...partner, rank: String(i + 1).padStart(2, '0') }));

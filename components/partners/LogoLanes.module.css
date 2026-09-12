@@ -129,3 +129,23 @@
     max-width: 110px;
   }
 }
+
+/* Declared here, not in globals: CSS Modules rewrites animation names used in
+   a module, so the keyframes must live in the same file to resolve. */
+@keyframes partnersL {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes partnersR {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

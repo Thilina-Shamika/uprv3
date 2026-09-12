@@ -5,6 +5,7 @@ import PageHero from '@/components/site/PageHero';
 import Tape from '@/components/site/Tape';
 import JoinCta from '@/components/site/JoinCta';
 import HomeFooter from '@/components/home/HomeFooter';
+import VolumeSummary from '@/components/partners/VolumeSummary';
 import LogoLanes from '@/components/partners/LogoLanes';
 import WhyPartner from '@/components/partners/WhyPartner';
 import Milestones from '@/components/partners/Milestones';
@@ -47,9 +48,10 @@ export default function Page() {
           ]}
         />
         <Tape label="Our partners" ariaLabel="Our partners" items={tapeItems} />
+        <VolumeSummary />
+        <Milestones />
         <LogoLanes />
         <WhyPartner />
-        <Milestones />
         <JoinCta
           eyebrowNum="05"
           translucentEyebrow

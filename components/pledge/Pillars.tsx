@@ -83,10 +83,6 @@ export default function Pillars() {
                     <h3 className={styles.title}>{pillar.title}</h3>
                     <p className={styles.lede}>{pillar.lede}</p>
                     <p className={styles.detail}>{pillar.detail}</p>
-                    <span className={styles.soon}>
-                      <span className={styles.soonRule} aria-hidden="true" />
-                      Detail page coming soon
-                    </span>
                   </div>
                   <div className={styles.aside}>
                     <div className={styles.plate}>
@@ -98,14 +94,6 @@ export default function Pillars() {
                         sizes="168px"
                         className={styles.icon}
                       />
-                    </div>
-                    <div className={styles.specs}>
-                      {pillar.specs.map(([label, value]) => (
-                        <div key={label} className={styles.spec}>
-                          <span className={styles.specLabel}>{label}</span>
-                          <span className={styles.specValue}>{value}</span>
-                        </div>
-                      ))}
                     </div>
                   </div>
                 </div>

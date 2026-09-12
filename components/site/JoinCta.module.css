@@ -125,3 +125,11 @@
   border-color: rgba(255, 255, 255, 0.55);
   color: #fff;
 }
+
+/* Declared here, not in globals: CSS Modules rewrites animation names used in
+   a module, so the keyframes must live in the same file to resolve. */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

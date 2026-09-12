@@ -126,61 +126,14 @@ img {
   transform: none;
 }
 
-/* ---- Keyframes ------------------------------------------------------------ */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes tape {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes partnersL {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes partnersR {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes tapeblink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0.15;
-  }
-}
-
+/* ---- Keyframes ------------------------------------------------------------
+   Movement keyframes live beside the components that use them: CSS Modules
+   rewrites animation names, so a module cannot reference a global one. Only
+   the registered custom property below has to be global. */
 @property --ang {
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
-}
-
-@keyframes eyespin {
-  to {
-    --ang: 360deg;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

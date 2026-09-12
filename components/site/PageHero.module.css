@@ -152,3 +152,11 @@
   color: var(--breadcrumb);
   margin-top: 8px;
 }
+
+/* Declared here, not in globals: CSS Modules rewrites animation names used in
+   a module, so the keyframes must live in the same file to resolve. */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
