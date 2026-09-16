@@ -1,8 +1,9 @@
-import Image from 'next/image';
-import styles from './Certifications.module.css';
+export type ProductGroup = 'recyclable' | 'energy' | 'compostable';
 
-type Mark = {
+export type Product = {
+  /** Anchor ids are the targets of the home page's certification rail. */
   id: string;
+  group: ProductGroup;
   src: string;
   w: number;
   h: number;
@@ -15,10 +16,36 @@ type Mark = {
   brochure?: { href: string; size: string };
 };
 
-/** Anchors here are the targets of the home page's certification rail. */
-const marks: Mark[] = [
+export const groups: { id: ProductGroup; num: string; title: string; lede: string }[] = [
+  {
+    id: 'recyclable',
+    num: '01',
+    title: 'Recyclable and recycled',
+    lede: 'Polyethylene structures that can go back into a recycling stream, and products made with recycled plastic.',
+  },
+  {
+    id: 'energy',
+    num: '02',
+    title: 'Made with renewable energy',
+    lede: 'Manufactured on solar-based energy and independently certified.',
+  },
+  {
+    id: 'compostable',
+    num: '03',
+    title: 'Compostable and biodegradable',
+    lede: 'For applications where a product needs to break down at the end of its life.',
+  },
+];
+
+export const productsIntro = {
+  title: 'Products with a clear end of life',
+  lede: 'Every Polydime product carries a mark that tells you how it was made and what should happen to it after use. If you are viewing a product carrying one of these logos, this is what it signifies.',
+};
+
+export const products: Product[] = [
   {
     id: 'cert-pe',
+    group: 'recyclable',
     src: '/assets/cert2.png',
     w: 2208,
     h: 1906,
@@ -30,6 +57,7 @@ const marks: Mark[] = [
   },
   {
     id: 'cert-40',
+    group: 'recyclable',
     src: '/assets/cert7.png',
     w: 1435,
     h: 1280,
@@ -41,6 +69,7 @@ const marks: Mark[] = [
   },
   {
     id: 'cert-netzero',
+    group: 'energy',
     src: '/assets/cert3.png',
     w: 1548,
     h: 1235,
@@ -52,6 +81,7 @@ const marks: Mark[] = [
   },
   {
     id: 'cert-ecosprout',
+    group: 'compostable',
     src: '/assets/cert1.png',
     w: 3875,
     h: 1140,
@@ -63,6 +93,7 @@ const marks: Mark[] = [
   },
   {
     id: 'cert-biocomp',
+    group: 'compostable',
     src: '/assets/cert6.png',
     w: 2142,
     h: 872,
@@ -73,6 +104,7 @@ const marks: Mark[] = [
   },
   {
     id: 'cert-ecoshield',
+    group: 'recyclable',
     src: '/assets/cert5.png',
     w: 1990,
     h: 1407,
@@ -84,6 +116,7 @@ const marks: Mark[] = [
   },
   {
     id: 'cert-ecopure',
+    group: 'compostable',
     src: '/assets/cert4.png',
     w: 2345,
     h: 1658,
@@ -94,89 +127,3 @@ const marks: Mark[] = [
     brochure: { href: '/brochures/ecopure-biodegradable-grow-bag.pdf', size: '0.7 MB' },
   },
 ];
-
-export default function Certifications() {
-  return (
-    <>
-      <div className={styles.ghost} aria-hidden="true">
-        <div className={styles.ghostWord}>Products</div>
-      </div>
-      <section id="certifications" className={styles.section}>
-        <div className={styles.inner}>
-          <div className={styles.head} data-reveal="">
-            <h2 className={styles.title}>What each mark means</h2>
-            <p className={styles.headCopy}>
-              If you are viewing a product carrying one of these logos, this is what it
-              signifies.
-            </p>
-          </div>
-
-          <div className={styles.list}>
-            {marks.map((mark) => (
-              <article key={mark.id} id={mark.id} className={styles.card} data-reveal="">
-                <span className={styles.plate}>
-                  <Image
-                    src={mark.src}
-                    alt={mark.alt}
-                    width={mark.w}
-                    height={mark.h}
-                    sizes="132px"
-                    style={{ width: '78%', height: '78%' }}
-                    className={styles.mark}
-                  />
-                </span>
-                <div className={styles.body}>
-                  <p className={styles.eyebrow}>{mark.eyebrow}</p>
-                  <h3 className={styles.name}>{mark.name}</h3>
-                  <p className={styles.copy}>{mark.copy}</p>
-                  {mark.brochure && (
-                    <a
-                      href={mark.brochure.href}
-                      target="_blank"
-                      rel="noopener"
-                      type="application/pdf"
-                      className={styles.brochure}
-                      aria-label={`View the ${mark.name} brochure (PDF, ${mark.brochure.size}, opens in a new tab)`}
-                    >
-                      <svg
-                        className={styles.brochureIcon}
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                      >
-                        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
-                        <path d="M14 3v5h5" />
-                        <path d="M9 13h6M9 17h4" />
-                      </svg>
-                      <span>View brochure</span>
-                      <span className={styles.brochureMeta}>PDF · {mark.brochure.size}</span>
-                      <svg
-                        width="13"
-                        height="13"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                      >
-                        <path d="M7 17L17 7M9 7h8v8" />
-                      </svg>
-                    </a>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
