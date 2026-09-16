@@ -10,6 +10,8 @@ export const routes = {
   partners: '/partners',
   blog: '/blog',
   joinUs: '/join-us',
+  privacyPolicy: '/privacy-policy',
+  termsAndConditions: '/terms-and-conditions',
 } as const;
 
 export const primaryNav = [

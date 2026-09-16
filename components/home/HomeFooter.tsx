@@ -123,13 +123,13 @@ export default function HomeFooter() {
       <div className={styles.legal}>
         <span>Copyright 2026 Use Plastic Responsibly · Inspired by Polydime</span>
         <div className={styles.legalLinks}>
-          <Link href={routes.pledge} className={styles.legalLink}>
+          <Link href={routes.privacyPolicy} className={styles.legalLink}>
             Privacy
           </Link>
-          <Link href={routes.pledge} className={styles.legalLink}>
+          <Link href={routes.termsAndConditions} className={styles.legalLink}>
             Terms
           </Link>
-          <Link href={routes.pledge} className={styles.legalLink}>
+          <Link href={`${routes.products}#certifications`} className={styles.legalLink}>
             Certifications
           </Link>
           <a href="#top" className={styles.legalLink}>
