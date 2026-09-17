@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import Eyebrow from '@/components/site/Eyebrow';
 import { contact } from '@/lib/routes';
-import styles from './MessageForm.module.css';
+import styles from './Join.module.css';
 
 type Field = 'name' | 'email' | 'phone' | 'message';
 type Values = Record<Field, string>;
@@ -93,48 +92,45 @@ export default function MessageForm() {
   );
 
   return (
-    <>
-      <div className={styles.ghost} aria-hidden="true">
-        <div className={styles.ghostWord}>Say hello</div>
-      </div>
-      <section id="message" className={styles.section}>
-        <div className={styles.inner}>
+    <section id="message" className={styles.tint} aria-labelledby="message-heading">
+      <div className={styles.wrap}>
+        <div className={styles.messageGrid}>
           <div className={styles.intro} data-reveal="">
-            <Eyebrow num="03" label="Send us a message" />
-            <h2 className={styles.title}>
-              Tell us what you <span className={styles.mark}>package.</span>
+            <p className={styles.eyebrow}>Send us a message</p>
+            <h2 id="message-heading" className={styles.h2}>
+              Tell us what you package
             </h2>
-            <p className={styles.lede}>
-              Feel free to get in touch through the form. Your message is sent directly to
-              our staff, who will answer as soon as they can.
+            <p className={styles.sectionLede}>
+              Feel free to get in touch through the form. Your message is sent directly to our
+              staff, who will answer as soon as they can.
             </p>
-            <div className={styles.facts}>
+            <dl className={styles.facts}>
               <div className={styles.fact}>
-                <span className={styles.factLabel}>Response time</span>
-                <span className={styles.factValue}>One working day</span>
+                <dt className={styles.factLabel}>Response time</dt>
+                <dd className={styles.factValue}>One working day</dd>
               </div>
               <div className={styles.fact}>
-                <span className={styles.factLabel}>Good to include</span>
-                <span className={styles.factValue}>
-                  Product, current packaging, monthly volume
-                </span>
+                <dt className={styles.factLabel}>Good to include</dt>
+                <dd className={styles.factValue}>Product, current packaging, monthly volume</dd>
               </div>
               <div className={styles.fact}>
-                <span className={styles.factLabel}>Prefer to talk?</span>
-                <span className={styles.factValue}>
+                <dt className={styles.factLabel}>Prefer to talk?</dt>
+                <dd className={styles.factValue}>
                   <a href={contact.phoneHref} className={styles.factLink}>
                     Call the hotline
                   </a>
-                </span>
+                </dd>
               </div>
-            </div>
+            </dl>
           </div>
 
-          <div className={styles.card} data-reveal="" data-reveal-delay="100">
+          <div className={styles.formCard} data-reveal="" data-reveal-delay="100">
             <form className={styles.form} onSubmit={onSubmit} noValidate>
-              {input('name', 'Name', 'text', 'Your full name')}
+              <div className={styles.row2}>
+                {input('name', 'Name', 'text', 'Your full name')}
+                {input('phone', 'Phone', 'tel', '(+94) 7X XXX XXXX')}
+              </div>
               {input('email', 'Email', 'email', 'you@company.com')}
-              {input('phone', 'Phone', 'tel', '(+94) 7X XXX XXXX')}
               <label className={styles.field}>
                 <span className={styles.fieldLabel}>Message</span>
                 <textarea
@@ -146,12 +142,9 @@ export default function MessageForm() {
                   className={styles.textarea}
                 />
               </label>
-              <div className={styles.actions}>
+              <div className={styles.formActions}>
                 <button type="submit" className={styles.submit}>
-                  Submit
-                  <span className={styles.submitIcon} aria-hidden="true">
-                    →
-                  </span>
+                  Submit <span aria-hidden="true">→</span>
                 </button>
                 <span className={styles.hint}>
                   Required fields are marked <span className={styles.req}>*</span>
@@ -162,17 +155,17 @@ export default function MessageForm() {
                   <span className={styles.noticeIcon} aria-hidden="true">
                     ✓
                   </span>
-                  <span className={styles.noticeText}>
-                    Your email app should now open with this message addressed to{' '}
-                    {contact.email} — press Send to deliver it. If nothing opened, email us
-                    directly at <a href={`mailto:${contact.email}`}>{contact.email}</a>.
+                  <span>
+                    Your email app should now open with this message addressed to {contact.email} —
+                    press Send to deliver it. If nothing opened, email us directly at{' '}
+                    <a href={`mailto:${contact.email}`}>{contact.email}</a>.
                   </span>
                 </div>
               )}
             </form>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import Eyebrow from '@/components/site/Eyebrow';
-import styles from './LogoLanes.module.css';
+import styles from './Partners.module.css';
 
 type Logo = { src: string; name: string };
 
@@ -66,18 +65,16 @@ function Group({ items, hidden }: { items: Logo[]; hidden?: boolean }) {
 
 export default function LogoLanes() {
   return (
-    <section className={styles.section}>
-      <div className={styles.head}>
-        <div className={styles.headInner} data-reveal="">
-          <div className={styles.headMain}>
-            <Eyebrow num="02" label="In the programme" />
-            <h2 className={styles.title}>
-              Brands packaging <span className={styles.mark}>responsibly</span>
-            </h2>
-          </div>
-          <p className={styles.headCopy}>
-            Growers, manufacturers and exporters who have moved to recycled or
-            biodegradable packaging with us.
+    <section className={styles.lanesSection} aria-labelledby="brands-heading">
+      <div className={styles.wrap}>
+        <div className={styles.sectionHead} data-reveal="">
+          <p className={styles.eyebrow}>In the programme</p>
+          <h2 id="brands-heading" className={styles.h2}>
+            Brands packaging responsibly
+          </h2>
+          <p className={styles.sectionLede}>
+            Growers, manufacturers and exporters who have moved to recycled or biodegradable
+            packaging with us.
           </p>
         </div>
       </div>

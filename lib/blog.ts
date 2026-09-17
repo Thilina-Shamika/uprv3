@@ -4,7 +4,7 @@ export type Post = {
   date: string;
   read: string;
   excerpt: string;
-  /** Posts without artwork show the prototype's "Image to come" placeholder. */
+  /** Posts without artwork show a plain category tile until photography exists. */
   image?: { src: string; width: number; height: number };
 };
 
@@ -75,7 +75,6 @@ export const posts: Post[] = [
     read: '4 min read',
     excerpt:
       'What field trials tell us about degradation claims, and how to read certification properly.',
-    image: { src: '/assets/logo-upr.png', width: 572, height: 192 },
   },
 ];
 

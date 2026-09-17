@@ -1,4 +1,4 @@
-import styles from './Social.module.css';
+import styles from './Join.module.css';
 
 /**
  * The design has no profile URLs yet, so these point to the top of the page as
@@ -8,11 +8,14 @@ const SOCIAL_HREF = '#top';
 
 export default function Social() {
   return (
-    <section className={styles.section}>
-      <div className={styles.inner} data-reveal="">
+    <section className={styles.white} aria-labelledby="social-heading">
+      <div className={`${styles.wrap} ${styles.social}`} data-reveal="">
         <div>
-          <div className={styles.title}>Follow the programme</div>
-          <p className={styles.copy}>Updates on materials, partners and milestones.</p>
+          <p className={styles.eyebrow}>Stay in touch</p>
+          <h2 id="social-heading" className={styles.socialTitle}>
+            Follow the programme
+          </h2>
+          <p className={styles.sectionLede}>Updates on materials, partners and milestones.</p>
         </div>
         <div className={styles.icons}>
           <a href={SOCIAL_HREF} aria-label="Facebook" className={styles.icon}>

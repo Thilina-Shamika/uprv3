@@ -1,5 +1,4 @@
-import Eyebrow from '@/components/site/Eyebrow';
-import styles from './WhyPartner.module.css';
+import styles from './Partners.module.css';
 
 const reasons = [
   {
@@ -12,36 +11,34 @@ const reasons = [
   },
   {
     title: 'Be counted here',
-    copy: 'Every kilogram you divert is recorded in the milestones below and published on this platform — measured, not estimated.',
+    copy: 'Every kilogram you divert is recorded in the milestones above and published on this platform — measured, not estimated.',
   },
 ];
 
 export default function WhyPartner() {
   return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        <div className={styles.head} data-reveal="">
-          <Eyebrow num="03" label="Why join" />
-          <h2 className={styles.title}>
-            Recognised as a{' '}
-            <span className={styles.mark}>responsible organisation.</span>
+    <section className={styles.tint} aria-labelledby="why-heading">
+      <div className={styles.wrap}>
+        <div className={styles.sectionHead} data-reveal="">
+          <p className={styles.eyebrow}>Why join</p>
+          <h2 id="why-heading" className={styles.h2}>
+            Recognised as a responsible organisation
           </h2>
         </div>
-        <div className={styles.grid}>
+        <ol className={styles.reasons}>
           {reasons.map((reason, i) => (
-            <div
+            <li
               key={reason.title}
-              className={i === reasons.length - 1 ? styles.dark : styles.card}
+              className={styles.reason}
               data-reveal=""
               data-reveal-delay={i * 80}
             >
-              <div className={styles.num}>{String(i + 1).padStart(2, '0')}</div>
-              <div className={styles.rule} />
-              <div className={styles.name}>{reason.title}</div>
-              <p className={styles.copy}>{reason.copy}</p>
-            </div>
+              <span className={styles.reasonNum}>{String(i + 1).padStart(2, '0')}</span>
+              <h3 className={styles.reasonTitle}>{reason.title}</h3>
+              <p className={styles.reasonCopy}>{reason.copy}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

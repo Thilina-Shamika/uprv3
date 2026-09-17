@@ -1,18 +1,19 @@
 import { ledgerTotals } from '@/lib/partners';
-import styles from './VolumeSummary.module.css';
+import styles from './Partners.module.css';
 
 export default function VolumeSummary() {
   return (
-    <section className={styles.section} aria-label="Volumes to date">
-      <div className={styles.panel} data-reveal="">
-        <div className={styles.row}>
+    <section className={styles.summary} aria-label="Volumes to date">
+      <div className={styles.wrap}>
+        <p className={styles.summaryLabel}>Volumes to date, by material</p>
+        <dl className={styles.totals} data-reveal="">
           {ledgerTotals.map((total) => (
-            <div key={total.label} className={total.lead ? styles.leadTile : styles.tile}>
-              <div className={styles.value}>{total.value}</div>
-              <div className={styles.label}>{total.label}</div>
+            <div key={total.label} className={total.lead ? styles.totalLead : styles.total}>
+              <dt className={styles.totalLabel}>{total.label}</dt>
+              <dd className={styles.totalValue}>{total.value}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );

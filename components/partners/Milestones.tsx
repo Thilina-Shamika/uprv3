@@ -3,10 +3,9 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
-import Eyebrow from '@/components/site/Eyebrow';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { ledger, tagAccent } from '@/lib/partners';
-import styles from './Milestones.module.css';
+import styles from './Partners.module.css';
 
 /** Everything a visitor might type: name, place, product, type or figure. */
 const haystacks = ledger.map((p) =>
@@ -35,105 +34,94 @@ export default function Milestones() {
   }, [query]);
 
   return (
-    <>
-      <div className={styles.ghost} aria-hidden="true">
-        <div className={styles.ghostWord}>Together</div>
-      </div>
-      <section className={styles.section}>
-        <div className={styles.inner}>
-          <div className={styles.head} data-reveal="">
-            <div className={styles.headMain}>
-              <Eyebrow num="04" label="Sustainability milestones" />
-              <h2 className={styles.title}>
-                Every kilogram, <span className={styles.mark}>accounted for.</span>
-              </h2>
-            </div>
-            <p className={styles.headCopy}>
-              Amount of sustainable material used to date in our production, by partner
-              and product.
-            </p>
-          </div>
+    <section className={styles.white} aria-labelledby="ledger-heading">
+      <div className={styles.wrap}>
+        <div className={styles.sectionHead} data-reveal="">
+          <p className={styles.eyebrow}>Sustainability milestones</p>
+          <h2 id="ledger-heading" className={styles.h2}>
+            Every kilogram, accounted for
+          </h2>
+          <p className={styles.sectionLede}>
+            Amount of sustainable material used to date in our production, by partner and product.
+          </p>
+        </div>
 
-          <div className={styles.searchRow}>
-            <label className={styles.search}>
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#6c8175"
-                strokeWidth="2"
-                strokeLinecap="round"
-                aria-hidden="true"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <path d="M20 20l-4.2-4.2" />
-              </svg>
-              <input
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search partners, countries or products"
-                aria-label="Search partners"
-                className={styles.input}
-              />
-            </label>
-            <div className={styles.meta} aria-live="polite">
-              {shown} {shown === 1 ? 'programme' : 'programmes'}
-            </div>
-          </div>
-
-          <div className={styles.legendRow}>
-            <div className={styles.meta}>Partner ledger · ranked by volume</div>
-            <div className={styles.legend}>
-              {Object.entries(tagAccent).map(([label, colour]) => (
-                <span key={label} className={styles.legendItem}>
-                  <span className={styles.swatch} style={{ background: colour }} />
-                  {label}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div ref={listRef} className={styles.list}>
-            {shown === 0 && <div className={styles.empty}>No partner matches that search.</div>}
-            {ledger.map((partner, i) => (
-              <div
-                key={partner.rank}
-                className={styles.card}
-                hidden={!matches[i]}
-                style={{ '--accent': tagAccent[partner.tag] } as CSSProperties}
-                data-reveal=""
-                data-reveal-delay={Math.min(i * 40, 240)}
-              >
-                <div className={styles.cardHead}>
-                  <span className={styles.rank}>{partner.rank}</span>
-                  <span className={styles.tag}>{partner.tag}</span>
-                </div>
-                <span className={styles.logoBox}>
-                  <Image
-                    src={partner.src}
-                    alt={partner.name}
-                    width={300}
-                    height={150}
-                    sizes="190px"
-                    className={styles.logo}
-                  />
-                </span>
-                <div className={styles.nameBlock}>
-                  <span className={styles.name}>{partner.name}</span>
-                  <span className={styles.country}>{partner.country}</span>
-                </div>
-                <p className={styles.desc}>{partner.desc}</p>
-                <div className={styles.figure}>
-                  <span className={styles.num}>{partner.num}</span>
-                  <span className={styles.unit}>kilograms</span>
-                </div>
-              </div>
+        <div className={styles.toolbar}>
+          <label className={styles.search}>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-4.2-4.2" />
+            </svg>
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search partners, countries or products"
+              aria-label="Search partners"
+              className={styles.input}
+            />
+          </label>
+          <div className={styles.legend}>
+            {Object.entries(tagAccent).map(([label, colour]) => (
+              <span key={label} className={styles.legendItem}>
+                <span className={styles.dot} style={{ background: colour }} />
+                {label}
+              </span>
             ))}
+            <span className={styles.count} aria-live="polite">
+              {shown} {shown === 1 ? 'programme' : 'programmes'}
+            </span>
           </div>
         </div>
-      </section>
-    </>
+
+        <div ref={listRef} className={styles.ledger}>
+          {shown === 0 && <p className={styles.empty}>No partner matches that search.</p>}
+          {ledger.map((partner, i) => (
+            <article
+              key={partner.rank}
+              className={styles.card}
+              hidden={!matches[i]}
+              style={{ '--accent': tagAccent[partner.tag] } as CSSProperties}
+              data-reveal=""
+              data-reveal-delay={Math.min(i * 40, 240)}
+            >
+              <div className={styles.cardTop}>
+                <span className={styles.rank}>{partner.rank}</span>
+                <span className={styles.tag}>
+                  <span className={styles.dot} />
+                  {partner.tag}
+                </span>
+              </div>
+              <span className={styles.logoBox}>
+                <Image
+                  src={partner.src}
+                  alt={partner.name}
+                  width={300}
+                  height={150}
+                  sizes="180px"
+                  className={styles.logo}
+                />
+              </span>
+              <h3 className={styles.name}>{partner.name}</h3>
+              <p className={styles.country}>{partner.country}</p>
+              <p className={styles.desc}>{partner.desc}</p>
+              <p className={styles.figure}>
+                <span className={styles.num}>{partner.num}</span>
+                <span className={styles.unit}>kg</span>
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
