@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { COUNTRY_COUNT, PARTNER_COUNT, TOTAL_KG_FORMATTED } from '@/lib/partners';
 import { routes } from '@/lib/routes';
 import styles from './Partners.module.css';
 
 const stats = [
-  { value: '22,346,157', label: 'KG sustainable material used' },
-  { value: '18', label: 'Partner organisations' },
-  { value: '03', label: 'Markets served' },
+  { value: TOTAL_KG_FORMATTED, label: 'KG sustainable material used' },
+  { value: String(PARTNER_COUNT), label: 'Partner organisations' },
+  { value: String(COUNTRY_COUNT).padStart(2, '0'), label: 'Markets served' },
 ];
 
 export default function PartnersHero() {

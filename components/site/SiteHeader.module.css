@@ -20,7 +20,7 @@
 }
 
 .logo {
-  height: clamp(36px, 4.2vw, 44px);
+  height: clamp(46px, 5vw, 60px);
   width: auto;
   display: block;
   /* Drops the logo's white plate onto the tinted bar. */

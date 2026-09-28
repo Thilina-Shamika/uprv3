@@ -3,13 +3,15 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PARTNER_INITIAL, PARTNER_PAGE, partners } from '@/lib/partners';
+import { PARTNER_INITIAL, PARTNER_PAGE, ledger, summarise, tagAccent } from '@/lib/partners';
 import { routes } from '@/lib/routes';
 import styles from './PartnerLedger.module.css';
 
+const totals = summarise();
+
 export default function PartnerLedger() {
   const [shown, setShown] = useState(PARTNER_INITIAL);
-  const remaining = partners.length - shown;
+  const remaining = ledger.length - shown;
 
   return (
     <section className={styles.section}>
@@ -28,8 +30,32 @@ export default function PartnerLedger() {
           </Link>
         </div>
 
+        <dl className={styles.totals}>
+          <div className={styles.totalLead}>
+            <dt className={styles.totalLabel}>Kilograms recovered</dt>
+            <dd className={styles.totalValue}>{totals.kilograms.toLocaleString('en-US')}</dd>
+          </div>
+          {totals.byTag.map((entry) => (
+            <div key={entry.tag} className={styles.total}>
+              <dt className={styles.totalLabel}>
+                <span
+                  className={styles.totalDot}
+                  style={{ background: tagAccent[entry.tag] }}
+                  aria-hidden="true"
+                />
+                {entry.tag} companies
+              </dt>
+              <dd className={styles.totalValue}>{entry.companies}</dd>
+            </div>
+          ))}
+          <div className={styles.total}>
+            <dt className={styles.totalLabel}>Partner programmes</dt>
+            <dd className={styles.totalValue}>{totals.programmes}</dd>
+          </div>
+        </dl>
+
         <div className={styles.grid}>
-          {partners.slice(0, shown).map((partner) => (
+          {ledger.slice(0, shown).map((partner) => (
             <div key={partner.rank} className={styles.card}>
               <div className={styles.cardHead}>
                 <span className={styles.rank}>{partner.rank}</span>
@@ -63,16 +89,10 @@ export default function PartnerLedger() {
             <button
               type="button"
               className={styles.moreBtn}
-              onClick={() =>
-                setShown((current) =>
-                  Math.min(partners.length, current + PARTNER_PAGE),
-                )
-              }
+              onClick={() => setShown((current) => Math.min(ledger.length, current + PARTNER_PAGE))}
             >
               <span>Load more partners</span>
-              <span className={styles.moreCount}>
-                +{Math.min(PARTNER_PAGE, remaining)}
-              </span>
+              <span className={styles.moreCount}>+{Math.min(PARTNER_PAGE, remaining)}</span>
             </button>
           </div>
         )}

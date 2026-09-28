@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { contact, routes } from '@/lib/routes';
+import { TOTAL_KG_FORMATTED } from '@/lib/partners';
 import styles from './HomeFooter.module.css';
 
 const explore = [
@@ -13,14 +14,7 @@ const explore = [
   { href: routes.joinUs, label: 'Join Us' },
 ];
 
-const products = [
-  'PE Recyclable',
-  'PE Plus',
-  'PE Plus Xtra',
-  'BioComp',
-  'EcoPure',
-  'ECOshield',
-];
+const products = ['PE Recyclable', 'PE Plus', 'PE Plus Xtra', 'BioComp', 'EcoPure', 'ECOshield'];
 
 const pledge = ['Recycle', 'Educate', 'Net Zero Energy', 'Biodegrade', 'Certifications'];
 
@@ -40,13 +34,12 @@ export default function HomeFooter() {
             />
           </div>
           <p className={styles.brandBody}>
-            The Polydime group is among the largest processors of recycled plastic film
-            in Sri Lanka. Approximately 40% of our product is made from recycled
-            plastic.
+            The Polydime group is among the largest processors of recycled plastic film in Sri
+            Lanka. Approximately 40% of our product is made from recycled plastic.
           </p>
           <div className={styles.diverted}>
             <span className={styles.dot} aria-hidden="true" />
-            22,346,157 KG diverted
+            {TOTAL_KG_FORMATTED} KG diverted
           </div>
         </div>
 

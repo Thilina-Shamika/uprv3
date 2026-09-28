@@ -8,33 +8,10 @@ export type AwardProduct = {
   facts: [string, string][];
 };
 
-export type Trophy = { src: string; name: string; year: string; desc: string };
-
 export const awardsIntro = {
   title: 'Recognised for sustainability',
   lede: 'We have been successful in winning many awards for sustainability and sustainable products, in both the local and global arena.',
 };
-
-export const trophies: Trophy[] = [
-  {
-    src: '/assets/trophy-wpo.png',
-    name: 'WorldStar for Packaging',
-    year: '2020',
-    desc: 'World Packaging Organisation — Award for Packaging Excellence, honouring Polydime Group for the Biodegradable Grow Bag',
-  },
-  {
-    src: '/assets/trophy-lankastar.png',
-    name: 'Lanka Star Bronze',
-    year: '2019',
-    desc: 'Sri Lanka Institute of Packaging — Heavy Duty UV Stable Grow Bag',
-  },
-  {
-    src: '/assets/trophy-asiastar.png',
-    name: 'AsiaStar Award',
-    year: '2019',
-    desc: 'The Asian Packaging Federation — Heavy Duty UV Stable Grow Bag',
-  },
-];
 
 export const awardProducts: AwardProduct[] = [
   {

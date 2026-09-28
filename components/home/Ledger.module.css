@@ -132,51 +132,6 @@
   text-wrap: pretty;
 }
 
-.trio {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(22px, 3vw, 40px);
-  padding: clamp(30px, 3.4vw, 50px) clamp(20px, 3vw, 48px);
-  border-top: 1px solid rgba(24, 44, 34, 0.1);
-}
-
-.stat {
-  text-align: center;
-  padding: 0 clamp(10px, 2vw, 30px);
-}
-
-/* Rules sit between columns only — the first cell never carries one. */
-.stat + .stat {
-  border-left: 1px solid rgba(24, 44, 34, 0.14);
-}
-
-.statValue {
-  margin: 0;
-  font-size: clamp(32px, 3.4vw, 46px);
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  color: var(--home-green-deep);
-}
-
-.statTitle {
-  margin: 14px 0 0;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--home-green-deep);
-}
-
-.statDesc {
-  margin: 8px 0 0;
-  font-size: 15.5px;
-  line-height: 1.45;
-  font-weight: 400;
-  color: var(--home-muted);
-  text-wrap: pretty;
-}
-
 .foot {
   margin-top: clamp(30px, 3.4vw, 52px);
   display: flex;
@@ -215,17 +170,4 @@
   transform: translateY(-2px);
   box-shadow: 0 22px 42px rgba(12, 61, 32, 0.3);
   color: #ffffff;
-}
-
-@media (max-width: 819px) {
-  /* Single column stacks, so the divider rotates to a top rule. */
-  .trio {
-    grid-template-columns: 1fr;
-  }
-
-  .stat + .stat {
-    border-left: none;
-    border-top: 1px solid rgba(24, 44, 34, 0.14);
-    padding-top: 24px;
-  }
 }

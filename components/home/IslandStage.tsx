@@ -4,9 +4,8 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { gsap } from '@/lib/gsap';
+import { TOTAL_KG } from '@/lib/partners';
 import styles from './IslandStage.module.css';
-
-const RECOVERED_KG = 22346157;
 
 export default function IslandStage() {
   const stageRef = useRef<HTMLDivElement>(null);
@@ -18,14 +17,14 @@ export default function IslandStage() {
       const format = (n: number) => Math.round(n).toLocaleString('en-US');
 
       if (reduced) {
-        if (countRef.current) countRef.current.textContent = format(RECOVERED_KG);
+        if (countRef.current) countRef.current.textContent = format(TOTAL_KG);
         return;
       }
 
       // The hero tally runs on load, not on scroll — it is already in view.
       const tally = { n: 0 };
       gsap.to(tally, {
-        n: RECOVERED_KG,
+        n: TOTAL_KG,
         duration: 2,
         delay: 0.35,
         // Cubic ease-out, the prototype's 1 - (1 - t)^3.
@@ -34,7 +33,6 @@ export default function IslandStage() {
           if (countRef.current) countRef.current.textContent = format(tally.n);
         },
       });
-
     },
     { scope: stageRef },
   );
@@ -57,8 +55,7 @@ export default function IslandStage() {
           </p>
           <p className={styles.unit}>KILOGRAMS and Counting...</p>
           <p className={styles.note}>
-            of sustainable material put back into production, tracked kilogram by
-            kilogram.
+            of sustainable material put back into production, tracked kilogram by kilogram.
           </p>
         </div>
       </div>
