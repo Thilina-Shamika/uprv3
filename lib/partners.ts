@@ -214,11 +214,16 @@ export const partners: Partner[] = [
 export const PARTNER_PAGE = 3;
 export const PARTNER_INITIAL = 6;
 
-/** Card accent (bottom rule and legend swatch) by material type. */
+/**
+ * Card accent (tag dot and legend swatch) by material type. Every category is
+ * listed here, including ones no partner uses yet: they show as zero in the
+ * summaries until a row above carries that tag.
+ */
 export const tagAccent: Record<string, string> = {
   Recycled: '#c7f24d',
   Biodegradable: '#8fd0a0',
   Compostable: '#5fbec4',
+  'Net Zero': '#e2b93b',
 };
 
 /** Polydime's own production lines, as opposed to partner brands. */
@@ -245,13 +250,13 @@ const countCompanies = (list: Partner[]) => new Set(list.map(companyKey)).size;
 export const TOTAL_KG = partners.reduce((sum, p) => sum + kg(p.num), 0);
 export const TOTAL_KG_FORMATTED = format(TOTAL_KG);
 
-/** Kilograms per material type, largest first. */
+/** Kilograms per material type, largest first; empty categories keep their place. */
 export const totalsByTag = Object.keys(tagAccent)
   .map((tag) => ({
     tag,
+    programmes: partners.filter((p) => p.tag === tag).length,
     kilograms: partners.filter((p) => p.tag === tag).reduce((sum, p) => sum + kg(p.num), 0),
   }))
-  .filter((entry) => entry.kilograms > 0)
   .sort((a, b) => b.kilograms - a.kilograms);
 
 export const PROGRAMME_COUNT = partners.length;
@@ -272,7 +277,7 @@ export function summarise(list: Partner[] = partners) {
     kilograms: list.reduce((sum, p) => sum + kg(p.num), 0),
     byTag: Object.keys(tagAccent).map((tag) => ({
       tag,
-      companies: countCompanies(list.filter((p) => p.tag === tag)),
+      companies: list.filter((p) => p.tag === tag).length,
       kilograms: list.filter((p) => p.tag === tag).reduce((sum, p) => sum + kg(p.num), 0),
     })),
   };
@@ -287,6 +292,16 @@ export const ledgerTotals: { value: string; label: string; lead?: boolean }[] = 
   })),
   { value: String(PROGRAMME_COUNT), label: 'Partner programmes' },
 ];
+
+/** Formatted per-category figures, used by both summary strips. */
+export const categoryTotals = Object.keys(tagAccent).map((tag) => {
+  const rows = partners.filter((p) => p.tag === tag);
+  return {
+    tag,
+    programmes: rows.length,
+    kilograms: rows.reduce((sum, p) => sum + kg(p.num), 0),
+  };
+});
 
 /**
  * Display order for the Partners page: buyers first, largest volume to

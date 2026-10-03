@@ -380,7 +380,7 @@
 /* Summary of whatever the search currently shows. */
 .listTotals {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) 1.4fr;
+  grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
   gap: 18px clamp(16px, 2.4vw, 36px);
   margin: clamp(22px, 2.6vw, 32px) 0 0;
   padding: clamp(20px, 2.4vw, 28px) clamp(20px, 2.6vw, 32px);
@@ -390,17 +390,18 @@
 
 .listTotal {
   display: flex;
-  flex-direction: column-reverse;
-  gap: 6px;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .listTotalLead {
   composes: listTotal;
-  padding-left: clamp(16px, 2.4vw, 36px);
-  border-left: 1px solid rgba(12, 61, 32, 0.12);
+  padding-right: clamp(16px, 2.4vw, 36px);
+  border-right: 1px solid rgba(12, 61, 32, 0.12);
 }
 
 .listTotalValue {
+  order: -1;
   margin: 0;
   font-size: clamp(22px, 2.2vw, 30px);
   line-height: 1;
@@ -413,6 +414,13 @@
 .listTotalLead .listTotalValue {
   font-size: clamp(26px, 3vw, 40px);
   color: var(--home-green-deep);
+}
+
+.listTotalSub {
+  margin: 0;
+  font-size: 13px;
+  color: var(--home-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .listTotalLabel {
@@ -887,10 +895,10 @@
 
   .listTotalLead {
     grid-column: 1 / -1;
-    padding-left: 0;
-    border-left: 0;
-    border-top: 1px solid rgba(12, 61, 32, 0.12);
-    padding-top: 18px;
+    padding-right: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(12, 61, 32, 0.12);
+    padding-bottom: 18px;
   }
 
   .heroInner {
@@ -931,8 +939,9 @@
   }
 
   .listTotalLead {
-    padding-left: 0;
-    border-left: 0;
+    grid-column: 1 / -1;
+    padding-right: 0;
+    border-right: 0;
   }
 
   .rowItem {

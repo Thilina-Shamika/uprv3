@@ -128,23 +128,23 @@ export default function Milestones() {
         </div>
 
         <dl className={styles.listTotals} aria-live="polite">
-          <div className={styles.listTotal}>
-            <dt className={styles.listTotalLabel}>Programmes shown</dt>
-            <dd className={styles.listTotalValue}>{totals.programmes}</dd>
+          <div className={styles.listTotalLead}>
+            <dt className={styles.listTotalLabel}>Total kilograms</dt>
+            <dd className={styles.listTotalValue}>{totals.kilograms.toLocaleString('en-US')}</dd>
+            <dd className={styles.listTotalSub}>
+              {totals.programmes} {totals.programmes === 1 ? 'programme' : 'programmes'} shown
+            </dd>
           </div>
           {totals.byTag.map((entry) => (
             <div key={entry.tag} className={styles.listTotal}>
               <dt className={styles.listTotalLabel}>
                 <span className={styles.dot} style={{ background: tagAccent[entry.tag] }} />
-                {entry.tag} companies
+                {entry.tag}
               </dt>
               <dd className={styles.listTotalValue}>{entry.companies}</dd>
+              <dd className={styles.listTotalSub}>{entry.kilograms.toLocaleString('en-US')} kg</dd>
             </div>
           ))}
-          <div className={styles.listTotalLead}>
-            <dt className={styles.listTotalLabel}>Total kilograms</dt>
-            <dd className={styles.listTotalValue}>{totals.kilograms.toLocaleString('en-US')}</dd>
-          </div>
         </dl>
 
         <div ref={listRef} className={view === 'list' ? styles.rowsView : styles.ledger}>

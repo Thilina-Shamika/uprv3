@@ -34,6 +34,7 @@ export default function PartnerLedger() {
           <div className={styles.totalLead}>
             <dt className={styles.totalLabel}>Kilograms recovered</dt>
             <dd className={styles.totalValue}>{totals.kilograms.toLocaleString('en-US')}</dd>
+            <dd className={styles.totalSub}>across {totals.programmes} partner programmes</dd>
           </div>
           {totals.byTag.map((entry) => (
             <div key={entry.tag} className={styles.total}>
@@ -43,15 +44,12 @@ export default function PartnerLedger() {
                   style={{ background: tagAccent[entry.tag] }}
                   aria-hidden="true"
                 />
-                {entry.tag} companies
+                {entry.tag}
               </dt>
               <dd className={styles.totalValue}>{entry.companies}</dd>
+              <dd className={styles.totalSub}>{entry.kilograms.toLocaleString('en-US')} kg</dd>
             </div>
           ))}
-          <div className={styles.total}>
-            <dt className={styles.totalLabel}>Partner programmes</dt>
-            <dd className={styles.totalValue}>{totals.programmes}</dd>
-          </div>
         </dl>
 
         <div className={styles.grid}>

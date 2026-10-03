@@ -65,8 +65,8 @@
 
 .total {
   display: flex;
-  flex-direction: column-reverse;
-  gap: 8px;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .totalLead {
@@ -76,6 +76,7 @@
 }
 
 .totalValue {
+  order: -1;
   margin: 0;
   font-size: clamp(22px, 2.2vw, 30px);
   line-height: 1;
@@ -88,6 +89,13 @@
 .totalLead .totalValue {
   font-size: clamp(28px, 3.2vw, 44px);
   color: var(--home-green-deep);
+}
+
+.totalSub {
+  margin: 0;
+  font-size: 13px;
+  color: var(--home-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .totalLabel {

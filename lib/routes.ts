@@ -9,6 +9,7 @@ export const routes = {
   awards: '/awards',
   partners: '/partners',
   blog: '/blog',
+  news: '/news',
   joinUs: '/join-us',
   privacyPolicy: '/privacy-policy',
   termsAndConditions: '/terms-and-conditions',
@@ -19,6 +20,7 @@ export const primaryNav = [
   { href: routes.pledge, label: 'Our Pledge' },
   { href: routes.awards, label: 'Awards & Accolades' },
   { href: routes.partners, label: 'Partners' },
+  { href: routes.news, label: 'News' },
   { href: routes.blog, label: 'Blog' },
 ] as const;
 

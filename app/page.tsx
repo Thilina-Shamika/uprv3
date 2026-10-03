@@ -5,6 +5,7 @@ import IslandStage from '@/components/home/IslandStage';
 import Ledger from '@/components/home/Ledger';
 import Strategy from '@/components/home/Strategy';
 import PartnerLedger from '@/components/home/PartnerLedger';
+import NewsStrip from '@/components/home/NewsStrip';
 import HomeFooter from '@/components/home/HomeFooter';
 import styles from './page.module.css';
 
@@ -24,6 +25,7 @@ export default function Page() {
         <Ledger />
         <Strategy />
         <PartnerLedger />
+        <NewsStrip />
         <HomeFooter />
       </div>
     </>

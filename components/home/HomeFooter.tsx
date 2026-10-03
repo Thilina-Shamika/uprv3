@@ -10,6 +10,7 @@ const explore = [
   { href: routes.pledge, label: 'Our Pledge' },
   { href: routes.partners, label: 'Partners' },
   { href: routes.awards, label: 'Awards' },
+  { href: routes.news, label: 'News' },
   { href: routes.blog, label: 'Blog' },
   { href: routes.joinUs, label: 'Join Us' },
 ];
