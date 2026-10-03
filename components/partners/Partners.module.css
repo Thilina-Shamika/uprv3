@@ -24,11 +24,30 @@
   background: var(--home-page);
 }
 
+/* ---- Section tints (see globals.css) ---- */
+.mint {
+  composes: section;
+  background: var(--tint-mint);
+}
+
+.sand {
+  composes: section;
+  background: var(--tint-sand);
+}
+
+.sky {
+  composes: section;
+  background: var(--tint-sky);
+}
+
 .eyebrow {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
   margin: 0 0 20px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--tint-lime);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.34em;
@@ -59,9 +78,10 @@
   overflow: hidden;
   padding: clamp(56px, 7vw, 100px) clamp(18px, 4vw, 72px);
   background:
-    radial-gradient(120% 90% at 10% 0%, #eaf3e6 0%, rgba(234, 243, 230, 0) 60%),
-    radial-gradient(90% 70% at 85% 10%, #f2f7f3 0%, rgba(242, 247, 243, 0) 65%),
-    linear-gradient(180deg, #eef4ec 0%, #f8fbf8 55%, #ffffff 100%);
+    radial-gradient(120% 90% at 10% 0%, #e4f1dd 0%, rgba(228, 241, 221, 0) 60%),
+    radial-gradient(70% 60% at 0% 100%, rgba(199, 242, 77, 0.22) 0%, rgba(199, 242, 77, 0) 70%),
+    radial-gradient(90% 70% at 85% 10%, #edf6f1 0%, rgba(237, 246, 241, 0) 65%),
+    linear-gradient(180deg, #eaf3e7 0%, #f6faf4 55%, #ffffff 100%);
 }
 
 .heroInner {
@@ -782,6 +802,7 @@
 
 .closeEyebrow {
   composes: eyebrow;
+  background: rgba(199, 242, 77, 0.16);
   color: #c7f24d;
 }
 

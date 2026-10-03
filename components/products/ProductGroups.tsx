@@ -2,13 +2,16 @@ import Image from 'next/image';
 import { groups, products } from '@/lib/products';
 import styles from './Products.module.css';
 
+/** Each category gets its own ground so the page is not a white column. */
+const tones = ['mint', 'sand', 'sky'] as const;
+
 export default function ProductGroups() {
   return (
     <div id="certifications">
       {groups.map((group, g) => (
         <section
           key={group.id}
-          className={g % 2 === 1 ? styles.tint : styles.white}
+          className={styles[tones[g % tones.length]]}
           aria-labelledby={`group-${group.id}`}
         >
           <div className={styles.wrap}>

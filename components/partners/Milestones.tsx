@@ -38,7 +38,7 @@ export default function Milestones() {
   }, [query, view]);
 
   return (
-    <section className={styles.white} aria-labelledby="ledger-heading">
+    <section className={styles.mint} aria-labelledby="ledger-heading">
       <div className={styles.wrap}>
         <div className={styles.sectionHead} data-reveal="">
           <p className={styles.eyebrow}>Sustainability milestones</p>

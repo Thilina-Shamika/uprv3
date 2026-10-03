@@ -23,7 +23,7 @@ export default function Archive() {
   }, [category]);
 
   return (
-    <section className={styles.white} aria-labelledby="archive-heading">
+    <section className={styles.mint} aria-labelledby="archive-heading">
       <div className={styles.wrap}>
         <div className={styles.archiveHead} data-reveal="">
           <div>

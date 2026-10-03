@@ -4,12 +4,12 @@ import PillarSlider from './PillarSlider';
 import styles from './Pledge.module.css';
 
 /** One pillar in full: story on the left, its focus areas alongside. */
-export default function PillarDetail({ pillar, tinted }: { pillar: Pillar; tinted: boolean }) {
+/** Each pillar sits on its own ground so the four read as distinct sections. */
+const tones = ['white', 'sky', 'sand', 'mint'] as const;
+
+export default function PillarDetail({ pillar, index }: { pillar: Pillar; index: number }) {
   return (
-    <section
-      id={pillar.id}
-      className={`${tinted ? styles.tint : styles.white} ${styles.pillar}`}
-    >
+    <section id={pillar.id} className={`${styles[tones[index % tones.length]]} ${styles.pillar}`}>
       <div className={styles.wrap}>
         <div className={styles.pillarHead} data-reveal="">
           <span className={styles.tileLarge}>

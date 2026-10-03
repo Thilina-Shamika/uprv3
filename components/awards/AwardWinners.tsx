@@ -4,7 +4,7 @@ import styles from './Awards.module.css';
 
 export default function AwardWinners() {
   return (
-    <section className={styles.white} aria-labelledby="winners-heading">
+    <section className={styles.mint} aria-labelledby="winners-heading">
       <div className={styles.wrap}>
         <div className={styles.sectionHead} data-reveal="">
           <p className={styles.eyebrow}>The products</p>

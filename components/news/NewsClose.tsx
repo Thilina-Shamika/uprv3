@@ -4,7 +4,7 @@ import styles from './News.module.css';
 
 export default function NewsClose() {
   return (
-    <section className={styles.white}>
+    <section className={styles.sand}>
       <div className={styles.wrap}>
         <div className={styles.close} data-reveal="">
           <div>

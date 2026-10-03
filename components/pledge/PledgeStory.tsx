@@ -3,7 +3,7 @@ import styles from './Pledge.module.css';
 
 export default function PledgeStory() {
   return (
-    <section className={styles.white}>
+    <section className={styles.sand}>
       <div className={`${styles.wrap} ${styles.split}`}>
         <div className={styles.stickyHead} data-reveal="">
           <p className={styles.eyebrow}>Why UPR</p>

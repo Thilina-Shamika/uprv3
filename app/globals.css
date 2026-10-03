@@ -55,6 +55,14 @@
   --home-rail-tile: #2e3d38;
   --home-hair: 1px solid rgba(24, 44, 34, 0.12);
 
+  /* Section tints. The inner pages alternate between these instead of running
+     white all the way down; all four sit within the brand's green-cream range
+     so the pages stay calm while reading as coloured rather than blank. */
+  --tint-mint: #e9f3ea;
+  --tint-sand: #f8f2e6;
+  --tint-sky: #e9f1f2;
+  --tint-lime: #f0f7dd;
+
   /* The fixed certification rail is 136px wide at --rail-left, so page content
      is inset by rail-left + 160px to clear it. Mobile swaps the rail for a
      bottom bar, so the inset collapses to an ordinary page margin. */

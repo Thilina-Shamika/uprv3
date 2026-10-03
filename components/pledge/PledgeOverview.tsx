@@ -4,7 +4,7 @@ import styles from './Pledge.module.css';
 
 export default function PledgeOverview() {
   return (
-    <section id="pillars" className={styles.tint}>
+    <section id="pillars" className={styles.mint}>
       <div className={styles.wrap}>
         <div className={styles.overviewHead}>
           <div data-reveal="">

@@ -4,7 +4,7 @@ import styles from './News.module.css';
 
 export default function NewsList() {
   return (
-    <section className={styles.white} aria-labelledby="news-heading">
+    <section className={styles.mint} aria-labelledby="news-heading">
       <div className={styles.wrap}>
         <h2 id="news-heading" className={styles.srOnly}>
           All news

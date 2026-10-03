@@ -28,7 +28,7 @@ export default function Page() {
         <PledgeOverview />
         <PledgeAmbition />
         {pillars.map((pillar, i) => (
-          <PillarDetail key={pillar.id} pillar={pillar} tinted={i % 2 === 1} />
+          <PillarDetail key={pillar.id} pillar={pillar} index={i} />
         ))}
         <PledgeClose />
         <PillarDock />

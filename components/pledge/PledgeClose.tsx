@@ -5,7 +5,7 @@ import styles from './Pledge.module.css';
 
 export default function PledgeClose() {
   return (
-    <section className={styles.white}>
+    <section className={styles.sand}>
       <div className={styles.wrap}>
         <div className={styles.close} data-reveal="">
           <p className={styles.closeEyebrow}>Our pledge</p>

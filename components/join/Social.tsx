@@ -8,7 +8,7 @@ const SOCIAL_HREF = '#top';
 
 export default function Social() {
   return (
-    <section className={styles.white} aria-labelledby="social-heading">
+    <section className={styles.sand} aria-labelledby="social-heading">
       <div className={`${styles.wrap} ${styles.social}`} data-reveal="">
         <div>
           <p className={styles.eyebrow}>Stay in touch</p>

@@ -17,7 +17,7 @@ const reasons = [
 
 export default function WhyPartner() {
   return (
-    <section className={styles.tint} aria-labelledby="why-heading">
+    <section className={styles.sky} aria-labelledby="why-heading">
       <div className={styles.wrap}>
         <div className={styles.sectionHead} data-reveal="">
           <p className={styles.eyebrow}>Why join</p>

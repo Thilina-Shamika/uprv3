@@ -92,7 +92,7 @@ export default function MessageForm() {
   );
 
   return (
-    <section id="message" className={styles.tint} aria-labelledby="message-heading">
+    <section id="message" className={styles.mint} aria-labelledby="message-heading">
       <div className={styles.wrap}>
         <div className={styles.messageGrid}>
           <div className={styles.intro} data-reveal="">
