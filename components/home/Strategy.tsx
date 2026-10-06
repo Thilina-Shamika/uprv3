@@ -46,9 +46,9 @@ export default function Strategy() {
             <span className={styles.accent}>sustainable.</span>
           </h2>
           <p className={styles.blurb}>
-            Using plastic responsibly is about the freedom and convenience of plastic
-            products, used responsibly. We pledge to operate and improve the circular
-            economy we have created for plastic.
+            Using plastic responsibly is about the freedom and convenience of plastic products, used
+            responsibly. We pledge to operate and improve the circular economy we have created for
+            plastic.
           </p>
         </div>
 

@@ -1,12 +1,15 @@
 .section {
   position: relative;
   z-index: 2;
-  background: var(--tint-sand);
+  background: var(--band-green-soft);
   padding: clamp(64px, 9vw, 120px) clamp(18px, 4vw, 72px);
   padding-left: var(--home-gutter);
 }
 
 .inner {
+  /* Sits above the decorative layer behind the section. */
+  position: relative;
+  z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
   display: grid;
@@ -30,12 +33,12 @@
   line-height: 1.02;
   font-weight: 700;
   letter-spacing: -0.035em;
-  color: var(--home-ink);
+  color: #ffffff;
   text-wrap: balance;
 }
 
 .accent {
-  color: var(--home-green-mid);
+  color: #c7f24d;
 }
 
 .blurb {
@@ -44,7 +47,7 @@
   font-size: clamp(16px, 1.35vw, 20px);
   line-height: 1.55;
   font-weight: 400;
-  color: var(--home-muted-alt);
+  color: #cfe3d6;
   text-wrap: pretty;
 }
 
@@ -59,16 +62,17 @@
   flex-direction: column;
   gap: 18px;
   padding: clamp(18px, 2.2vw, 30px);
-  background: #ffffff;
-  border: 1px solid rgba(24, 44, 34, 0.09);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(24, 44, 34, 0.05);
+  box-shadow: 0 10px 30px rgba(6, 28, 19, 0.18);
   transition: transform 0.3s var(--ease), box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 46px rgba(24, 44, 34, 0.12);
+  background: rgba(255, 255, 255, 0.11);
+  box-shadow: 0 20px 46px rgba(6, 28, 19, 0.3);
 }
 
 .plate {
@@ -78,7 +82,7 @@
   width: clamp(92px, 9vw, 116px);
   height: clamp(92px, 9vw, 116px);
   border-radius: 16px;
-  background: #143a26;
+  background: rgba(255, 255, 255, 0.1);
   position: relative;
 }
 
@@ -98,7 +102,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--home-ink);
+  color: #ffffff;
 }
 
 .value {
@@ -107,14 +111,14 @@
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.035em;
-  color: var(--home-green-mid);
+  color: #c7f24d;
 }
 
 .unit {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
-  color: var(--home-muted);
+  color: #cfe3d6;
 }
 
 @media (max-width: 519px) {

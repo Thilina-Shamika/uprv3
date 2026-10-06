@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { ledgerTotals } from '@/lib/partners';
 import styles from './Partners.module.css';
 
@@ -6,7 +7,11 @@ export default function VolumeSummary() {
     <section className={styles.summary} aria-label="Volumes to date">
       <div className={styles.wrap}>
         <p className={styles.summaryLabel}>Volumes to date, by material</p>
-        <dl className={styles.totals} data-reveal="">
+        <dl
+          className={styles.totals}
+          style={{ '--cols': ledgerTotals.length - 1 } as CSSProperties}
+          data-reveal=""
+        >
           {ledgerTotals.map((total) => (
             <div key={total.label} className={total.lead ? styles.totalLead : styles.total}>
               <dt className={styles.totalLabel}>{total.label}</dt>

@@ -5,6 +5,9 @@
    =========================================================================== */
 
 .wrap {
+  /* Sits above the decorative layer behind each section. */
+  position: relative;
+  z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
 }
@@ -38,6 +41,18 @@
 .sky {
   composes: section;
   background: var(--tint-sky);
+}
+
+/* A full-width green band: the closing panel fills its whole section. */
+.band {
+  composes: section;
+  background: var(--band-green);
+}
+
+.band .close {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .eyebrow {
@@ -120,7 +135,7 @@
   line-height: 1.03;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--home-ink);
+  color: var(--home-green-deep);
   text-wrap: balance;
 }
 
@@ -660,4 +675,44 @@
   .trophyImg {
     transition: none;
   }
+}
+
+/* ---- Mid-page green band (award-winning products) ---- */
+.bandSoft {
+  composes: section;
+  background: var(--band-green-soft);
+  color: #ffffff;
+}
+
+.bandSoft .eyebrow {
+  background: rgba(199, 242, 77, 0.16);
+  color: #c7f24d;
+}
+
+.bandSoft .h2,
+.bandSoft .rowName,
+.bandSoft .factValue {
+  color: #ffffff;
+}
+
+.bandSoft .sectionLede,
+.bandSoft .rowCopy {
+  color: #cfe3d6;
+}
+
+.bandSoft .rowMeta {
+  color: #c7f24d;
+}
+
+.bandSoft .rowNum {
+  background: #c7f24d;
+  color: #0d3324;
+}
+
+.bandSoft .fact {
+  border-top-color: rgba(255, 255, 255, 0.18);
+}
+
+.bandSoft .factLabel {
+  color: #a9c4b2;
 }

@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { pledge } from '@/lib/pledge';
 import { routes } from '@/lib/routes';
 import styles from './Pledge.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 export default function PledgeClose() {
   return (
-    <section className={styles.sand}>
+    <section className={styles.band}>
       <div className={styles.wrap}>
         <div className={styles.close} data-reveal="">
           <p className={styles.closeEyebrow}>Our pledge</p>
@@ -31,7 +32,10 @@ export default function PledgeClose() {
           <div className={styles.closeFoot}>
             <p className={styles.closing}>{pledge.closing}</p>
             <Link href={routes.joinUs} className={styles.closeCta}>
-              Join Us <span aria-hidden="true">→</span>
+              Join Us{' '}
+              <span aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </Link>
           </div>
         </div>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import type { GalleryImage } from '@/lib/pledge';
 import styles from './PillarSlider.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
@@ -103,7 +104,7 @@ export default function PillarSlider({ images, label }: { images: GalleryImage[]
             onClick={() => goTo(index - 1)}
             aria-label="Previous photo"
           >
-            ←
+            <ArrowIcon direction="left" size={16} />
           </button>
           <button
             type="button"
@@ -111,7 +112,7 @@ export default function PillarSlider({ images, label }: { images: GalleryImage[]
             onClick={() => goTo(index + 1)}
             aria-label="Next photo"
           >
-            →
+            <ArrowIcon size={16} />
           </button>
         </div>
       </div>

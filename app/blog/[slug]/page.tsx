@@ -9,6 +9,7 @@ import BlogClose from '@/components/blog/BlogClose';
 import { posts } from '@/lib/blog';
 import { routes } from '@/lib/routes';
 import styles from './page.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -96,7 +97,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               })}
 
               <Link href={routes.blog} className={styles.back}>
-                <span aria-hidden="true">←</span> Back to the journal
+                <ArrowIcon direction="left" /> Back to the journal
               </Link>
             </div>
           </div>

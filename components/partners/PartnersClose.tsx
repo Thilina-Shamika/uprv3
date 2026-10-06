@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { routes } from '@/lib/routes';
 import styles from './Partners.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 export default function PartnersClose() {
   return (
-    <section className={styles.sand}>
+    <section className={styles.band}>
       <div className={styles.wrap}>
         <div className={styles.close} data-reveal="">
           <div>
@@ -17,7 +18,10 @@ export default function PartnersClose() {
           </div>
           <div className={styles.closeActions}>
             <Link href={routes.joinUs} className={styles.closeCta}>
-              Join Us <span aria-hidden="true">→</span>
+              Join Us{' '}
+              <span aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </Link>
             <Link href={routes.awards} className={styles.closeGhost}>
               See our awards

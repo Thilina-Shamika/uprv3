@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { news, NEWS_HREF } from '@/lib/news';
 import styles from './News.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 export default function NewsList() {
   return (
@@ -38,7 +39,10 @@ export default function NewsList() {
                     <span className={styles.itemTitle}>{item.title}</span>
                     <span className={styles.itemExcerpt}>{item.excerpt}</span>
                     <span className={styles.readMore}>
-                      Read more <span aria-hidden="true">→</span>
+                      Read more{' '}
+                      <span aria-hidden="true">
+                        <ArrowIcon />
+                      </span>
                     </span>
                   </span>
                 </a>

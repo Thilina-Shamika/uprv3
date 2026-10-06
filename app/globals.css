@@ -58,10 +58,13 @@
   /* Section tints. The inner pages alternate between these instead of running
      white all the way down; all four sit within the brand's green-cream range
      so the pages stay calm while reading as coloured rather than blank. */
-  --tint-mint: #e9f3ea;
-  --tint-sand: #f8f2e6;
-  --tint-sky: #e9f1f2;
-  --tint-lime: #f0f7dd;
+  --tint-mint: #dceade;
+  --tint-sand: #eef2e0;
+  --tint-sky: #dfecea;
+  --tint-lime: #e6f3c8;
+  /* Full-strength green bands, for whole sections rather than panels. */
+  --band-green: #0d3324;
+  --band-green-soft: #14492f;
 
   /* The fixed certification rail is 136px wide at --rail-left, so page content
      is inset by rail-left + 160px to clear it. Mobile swaps the rail for a

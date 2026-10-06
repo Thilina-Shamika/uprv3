@@ -5,6 +5,9 @@
    =========================================================================== */
 
 .wrap {
+  /* Sits above the decorative layer behind each section. */
+  position: relative;
+  z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
 }
@@ -38,6 +41,18 @@
 .sky {
   composes: section;
   background: var(--tint-sky);
+}
+
+/* A full-width green band: the closing panel fills its whole section. */
+.band {
+  composes: section;
+  background: var(--band-green);
+}
+
+.band .close {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .eyebrow {
@@ -192,7 +207,7 @@
   line-height: 1.03;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--home-ink);
+  color: var(--home-green-deep);
   text-wrap: balance;
 }
 
@@ -355,7 +370,12 @@
 .mist {
   composes: section;
   overflow: hidden;
-  background-image: url('/assets/section-mist.png');
+  /* Deep green ground with the mist photograph faint on top, as on the home
+     page's Measured Impact band. */
+  background-color: var(--band-green);
+  background-image:
+    linear-gradient(rgba(13, 51, 36, 0.9), rgba(13, 51, 36, 0.94)),
+    url('/assets/section-mist.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -734,4 +754,31 @@
   .commitments {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* ---- Ambition band (colours only; the layout is unchanged) ---- */
+.mist .panel {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.mist .eyebrow {
+  background: rgba(199, 242, 77, 0.16);
+  color: #c7f24d;
+}
+
+.mist .figureLead {
+  color: #c7f24d;
+}
+
+.mist .figure {
+  color: #ffffff;
+}
+
+.mist .statement {
+  color: #c7f24d;
+}
+
+.mist .p {
+  color: #cfe3d6;
 }

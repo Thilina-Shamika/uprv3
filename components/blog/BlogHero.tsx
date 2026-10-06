@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { featured, postHref } from '@/lib/blog';
 import { routes } from '@/lib/routes';
 import styles from './Blog.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 /** Intro on the left, the featured article on the right. */
 export default function BlogHero() {
@@ -48,7 +49,10 @@ export default function BlogHero() {
             <span className={styles.featuredTitle}>{featured.title}</span>
             <span className={styles.featuredExcerpt}>{featured.excerpt}</span>
             <span className={styles.readMore}>
-              Read article <span aria-hidden="true">→</span>
+              Read article{' '}
+              <span aria-hidden="true">
+                <ArrowIcon />
+              </span>
             </span>
           </span>
         </Link>

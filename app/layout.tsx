@@ -18,9 +18,7 @@ export const metadata: Metadata = {
     'We help industry design a circular economy for plastic. Recyclable PE, PE Plus and PE Plus Xtra structures, recycled content and biodegradable packaging.',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"

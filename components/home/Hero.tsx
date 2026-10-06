@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from '@/lib/gsap';
 import { routes } from '@/lib/routes';
 import styles from './Hero.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -42,15 +43,7 @@ export default function Hero() {
       </p>
       <Link href={routes.products} className={styles.cta}>
         <span>Explore Solutions</span>
-        <svg width="22" height="12" viewBox="0 0 26 14" fill="none" aria-hidden="true">
-          <path
-            d="M1 7h23M18.5 1L24.8 7l-6.3 6"
-            stroke="#ffffff"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <ArrowIcon size={16} />
       </Link>
     </section>
   );

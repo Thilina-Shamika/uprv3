@@ -7,6 +7,7 @@ import { gsap } from '@/lib/gsap';
 import { routes } from '@/lib/routes';
 import { PROGRAMME_COUNT, TOTAL_KG } from '@/lib/partners';
 import styles from './Ledger.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 export default function Ledger() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -88,15 +89,7 @@ export default function Ledger() {
           <p className={styles.footNote}>Across {PROGRAMME_COUNT} partner programmes</p>
           <Link href={routes.pledge} className={styles.footCta}>
             <span>See the ledger</span>
-            <svg width="22" height="12" viewBox="0 0 22 12" fill="none" aria-hidden="true">
-              <path
-                d="M1 6h19M15.2 1L20.8 6l-5.6 5"
-                stroke="#ffffff"
-                strokeWidth="1.3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <ArrowIcon size={16} />
           </Link>
         </div>
       </div>

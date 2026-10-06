@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { news, NEWS_HREF } from '@/lib/news';
 import { routes } from '@/lib/routes';
 import styles from './NewsStrip.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 /** The three most recent items; the full list lives on the news page. */
 const latest = news.slice(0, 3);
@@ -50,7 +51,10 @@ export default function NewsStrip() {
               <span className={styles.cardTitle}>{item.title}</span>
               <span className={styles.excerpt}>{item.excerpt}</span>
               <span className={styles.more}>
-                Read more <span aria-hidden="true">→</span>
+                Read more{' '}
+                <span aria-hidden="true">
+                  <ArrowIcon />
+                </span>
               </span>
             </Link>
           ))}

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { routes } from '@/lib/routes';
 import styles from './Products.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 export default function ProductsClose() {
   return (
-    <section className={styles.white}>
+    <section className={styles.band}>
       <div className={styles.wrap}>
         <div className={styles.close} data-reveal="">
           <div>
@@ -16,7 +17,10 @@ export default function ProductsClose() {
             </p>
           </div>
           <Link href={routes.joinUs} className={styles.closeCta}>
-            Ask us <span aria-hidden="true">→</span>
+            Ask us{' '}
+            <span aria-hidden="true">
+              <ArrowIcon />
+            </span>
           </Link>
         </div>
       </div>

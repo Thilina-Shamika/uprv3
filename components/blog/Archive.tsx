@@ -6,6 +6,7 @@ import { gsap, ScrollTrigger } from '@/lib/gsap';
 import Link from 'next/link';
 import { categories, postHref, posts } from '@/lib/blog';
 import styles from './Blog.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 export default function Archive() {
   const [category, setCategory] = useState('All');
@@ -85,7 +86,10 @@ export default function Archive() {
               <span className={styles.postTitle}>{post.title}</span>
               <span className={styles.postExcerpt}>{post.excerpt}</span>
               <span className={styles.readMore}>
-                Read article <span aria-hidden="true">→</span>
+                Read article{' '}
+                <span aria-hidden="true">
+                  <ArrowIcon />
+                </span>
               </span>
             </Link>
           ))}

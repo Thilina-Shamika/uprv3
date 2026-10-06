@@ -4,7 +4,11 @@
   padding: clamp(64px, 9vw, 120px) clamp(18px, 4vw, 72px);
   padding-left: var(--home-gutter);
   overflow: hidden;
-  background-image: url('/assets/section-mist.png');
+  /* Deep green ground; the mist photograph sits faintly on top of it. */
+  background-color: var(--band-green);
+  background-image:
+    linear-gradient(rgba(13, 51, 36, 0.9), rgba(13, 51, 36, 0.94)),
+    url('/assets/section-mist.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -30,7 +34,7 @@
   font-weight: 600;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--home-green);
+  color: #c7f24d;
 }
 
 .title {
@@ -39,7 +43,7 @@
   line-height: 1.03;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--home-ink);
+  color: #ffffff;
   text-wrap: balance;
 }
 
@@ -50,15 +54,15 @@
   font-size: clamp(16px, 1.35vw, 20px);
   line-height: 1.5;
   font-weight: 400;
-  color: var(--home-muted-alt);
+  color: #cfe3d6;
   text-wrap: pretty;
 }
 
 .panel {
   position: relative;
   margin-top: clamp(30px, 3.6vw, 52px);
-  background: var(--home-green-deep);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 28px;
   overflow: hidden;
 }
@@ -147,7 +151,7 @@
   font-weight: 600;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--home-muted-eyebrow);
+  color: #a9c4b2;
 }
 
 .footCta {
@@ -157,8 +161,8 @@
   height: 56px;
   padding: 0 34px;
   border-radius: 999px;
-  background: var(--home-green-deep);
-  color: #ffffff;
+  background: #c7f24d;
+  color: #0d3324;
   font-size: 17px;
   font-weight: 500;
   box-shadow: 0 16px 32px rgba(12, 61, 32, 0.22);
@@ -166,8 +170,8 @@
 }
 
 .footCta:hover {
-  background: var(--home-green-deep-hover);
+  background: #d6f77a;
   transform: translateY(-2px);
-  box-shadow: 0 22px 42px rgba(12, 61, 32, 0.3);
-  color: #ffffff;
+  box-shadow: 0 22px 42px rgba(12, 61, 32, 0.4);
+  color: #0d3324;
 }

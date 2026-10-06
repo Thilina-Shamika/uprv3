@@ -4,6 +4,7 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { contact } from '@/lib/routes';
 import styles from './Join.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 type Field = 'name' | 'email' | 'phone' | 'message';
 type Values = Record<Field, string>;
@@ -92,7 +93,7 @@ export default function MessageForm() {
   );
 
   return (
-    <section id="message" className={styles.mint} aria-labelledby="message-heading">
+    <section id="message" className={styles.bandSoft} aria-labelledby="message-heading">
       <div className={styles.wrap}>
         <div className={styles.messageGrid}>
           <div className={styles.intro} data-reveal="">
@@ -144,7 +145,10 @@ export default function MessageForm() {
               </label>
               <div className={styles.formActions}>
                 <button type="submit" className={styles.submit}>
-                  Submit <span aria-hidden="true">→</span>
+                  Submit{' '}
+                  <span aria-hidden="true">
+                    <ArrowIcon />
+                  </span>
                 </button>
                 <span className={styles.hint}>
                   Required fields are marked <span className={styles.req}>*</span>

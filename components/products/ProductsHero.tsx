@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { products, productsIntro } from '@/lib/products';
 import { routes } from '@/lib/routes';
 import styles from './Products.module.css';
+import ArrowIcon from '@/components/site/ArrowIcon';
 
 /** Each mark floats as its own tile and links to that product below. */
 export default function ProductsHero() {
@@ -20,7 +21,9 @@ export default function ProductsHero() {
           <p className={styles.heroLede}>{productsIntro.lede}</p>
           <a href="#certifications" className={styles.cta}>
             <span>Explore the products</span>
-            <span aria-hidden="true">↓</span>
+            <span aria-hidden="true">
+              <ArrowIcon />
+            </span>
           </a>
         </div>
 

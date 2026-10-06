@@ -5,6 +5,9 @@
    =========================================================================== */
 
 .wrap {
+  /* Sits above the decorative layer behind each section. */
+  position: relative;
+  z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
 }
@@ -38,6 +41,18 @@
 .sky {
   composes: section;
   background: var(--tint-sky);
+}
+
+/* A full-width green band: the closing panel fills its whole section. */
+.band {
+  composes: section;
+  background: var(--band-green);
+}
+
+.band .close {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .eyebrow {
@@ -120,7 +135,7 @@
   line-height: 1.03;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--home-ink);
+  color: var(--home-green-deep);
   text-wrap: balance;
 }
 
@@ -443,4 +458,49 @@
   .floatTile {
     animation: none;
   }
+}
+
+/* ---- Mid-page green band (renewable energy category) ---- */
+.bandSoft {
+  composes: section;
+  background: var(--band-green-soft);
+  color: #ffffff;
+}
+
+.bandSoft .eyebrow {
+  background: rgba(199, 242, 77, 0.16);
+  color: #c7f24d;
+}
+
+.bandSoft .h2,
+.bandSoft .rowName {
+  color: #ffffff;
+}
+
+.bandSoft .groupLede,
+.bandSoft .rowCopy {
+  color: #cfe3d6;
+}
+
+.bandSoft .rowEyebrow {
+  color: #c7f24d;
+}
+
+.bandSoft .visual {
+  background:
+    radial-gradient(90% 80% at 30% 20%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 60%),
+    rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.bandSoft .brochure {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.34);
+  color: #ffffff;
+}
+
+.bandSoft .brochure:hover {
+  background: #c7f24d;
+  border-color: #c7f24d;
+  color: #0d3324;
 }

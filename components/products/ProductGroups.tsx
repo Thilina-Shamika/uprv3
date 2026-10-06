@@ -3,7 +3,7 @@ import { groups, products } from '@/lib/products';
 import styles from './Products.module.css';
 
 /** Each category gets its own ground so the page is not a white column. */
-const tones = ['mint', 'sand', 'sky'] as const;
+const tones = ['mint', 'bandSoft', 'sky'] as const;
 
 export default function ProductGroups() {
   return (

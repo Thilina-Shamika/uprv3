@@ -1,12 +1,15 @@
 .section {
   position: relative;
   z-index: 2;
-  background: var(--tint-mint);
+  background: var(--tint-sand);
   padding: clamp(64px, 9vw, 120px) clamp(18px, 4vw, 72px);
   padding-left: var(--home-gutter);
 }
 
 .inner {
+  /* Sits above the decorative layer behind the section. */
+  position: relative;
+  z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
 }

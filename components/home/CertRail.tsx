@@ -89,13 +89,7 @@ export default function CertRail() {
                 className={styles.markBox}
                 style={{ transform: `scale(${railScale(cert.shape)})` }}
               >
-                <Image
-                  src={cert.src}
-                  alt={cert.name}
-                  fill
-                  sizes="136px"
-                  className={styles.mark}
-                />
+                <Image src={cert.src} alt={cert.name} fill sizes="136px" className={styles.mark} />
               </div>
               <div className={styles.tipAnchor}>
                 <div
@@ -120,17 +114,8 @@ export default function CertRail() {
       <nav aria-label="Certifications" className={styles.bar}>
         {certs.map((cert) => (
           <Link key={cert.name} href={cert.href} className={styles.barItem}>
-            <div
-              className={styles.barMarkBox}
-              style={{ width: barWidth(cert.shape) }}
-            >
-              <Image
-                src={cert.src}
-                alt=""
-                fill
-                sizes="80px"
-                className={styles.mark}
-              />
+            <div className={styles.barMarkBox} style={{ width: barWidth(cert.shape) }}>
+              <Image src={cert.src} alt="" fill sizes="80px" className={styles.mark} />
             </div>
             <span className={styles.barLabel}>{cert.name}</span>
           </Link>
