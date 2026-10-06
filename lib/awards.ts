@@ -81,3 +81,168 @@ export const awardProducts: AwardProduct[] = [
     ],
   },
 ];
+
+export type Trophy = {
+  id: string;
+  /** Award programme, used to group the cabinet. */
+  programme: 'WorldStar' | 'AsiaStar' | 'Lanka Star';
+  year: string;
+  /** Level or category engraved on the trophy, where there is one. */
+  level?: string;
+  /** What the award was given for, in the words on the trophy. */
+  entry: string;
+  awardedTo: string;
+  image: { src: string; width: number; height: number };
+};
+
+/** Transcribed from the engraving on each trophy. */
+export const trophies: Trophy[] = [
+  {
+    id: 'worldstar-2022',
+    programme: 'WorldStar',
+    year: '2022',
+    level: 'Award for Packaging Excellence',
+    entry: '100% Recyclable Packaging for Tuna',
+    awardedTo: 'Overdime Exports (Pvt) Ltd, a member of the Polydime Group',
+    image: {
+      src: '/assets/awards/worldstar-2022-recyclable-tuna-pack.png',
+      width: 582,
+      height: 1000,
+    },
+  },
+  {
+    id: 'worldstar-2021',
+    programme: 'WorldStar',
+    year: '2021',
+    level: 'Award for Packaging Excellence',
+    entry: 'Grow Bag made with 40% Scrap',
+    awardedTo: 'Overdime Exports (Pvt) Ltd, a member of the Polydime Group',
+    image: { src: '/assets/awards/worldstar-2021-grow-bag-40-scrap.png', width: 453, height: 1000 },
+  },
+  {
+    id: 'worldstar-2020',
+    programme: 'WorldStar',
+    year: '2020',
+    level: 'Award for Packaging Excellence',
+    entry: 'Biodegradable Grow Bag',
+    awardedTo: 'Polydime Group',
+    image: {
+      src: '/assets/awards/worldstar-2020-biodegradable-grow-bag.png',
+      width: 613,
+      height: 1000,
+    },
+  },
+  {
+    id: 'asiastar-2024',
+    programme: 'AsiaStar',
+    year: '2024',
+    entry: 'Grow Bag made with 55% Recycle Content',
+    awardedTo: 'Polydime International (Pvt) Ltd',
+    image: {
+      src: '/assets/awards/asiastar-2024-grow-bag-55-recycled.png',
+      width: 457,
+      height: 1000,
+    },
+  },
+  {
+    id: 'asiastar-2020',
+    programme: 'AsiaStar',
+    year: '2020',
+    entry: 'Grow Bag made with 40% Scrap',
+    awardedTo: 'Overdime Exports (Pvt) Ltd, a member of the Polydime Group',
+    image: { src: '/assets/awards/asiastar-2020-grow-bag-40-scrap.png', width: 470, height: 1000 },
+  },
+  {
+    id: 'asiastar-2019',
+    programme: 'AsiaStar',
+    year: '2019',
+    entry: 'Heavy Duty UV Stable Grow Bag',
+    awardedTo: 'Polydime International (Pvt) Ltd (Overdime)',
+    image: {
+      src: '/assets/awards/asiastar-2019-heavy-duty-uv-grow-bag.png',
+      width: 458,
+      height: 1000,
+    },
+  },
+  {
+    id: 'lankastar-2024',
+    programme: 'Lanka Star',
+    year: '2024',
+    level: 'LankaStar Gold',
+    entry: 'Non-woven Grow Bag',
+    awardedTo: 'Polydime International (Pvt) Ltd',
+    image: {
+      src: '/assets/awards/lankastar-2024-non-woven-grow-bag.png',
+      width: 460,
+      height: 1000,
+    },
+  },
+  {
+    id: 'lankastar-2023',
+    programme: 'Lanka Star',
+    year: '2023',
+    level: 'LankaStar Gold · Consumer Packaging, Industrial',
+    entry: 'Grow Bag with planting hole cut on the same run',
+    awardedTo: 'Polydime Plastic Industries Ltd',
+    image: {
+      src: '/assets/awards/lankastar-2023-planting-hole-grow-bag.png',
+      width: 435,
+      height: 1000,
+    },
+  },
+  {
+    id: 'lankastar-2020-innovation',
+    programme: 'Lanka Star',
+    year: '2020',
+    level: 'LankaStar Gold · Innovation',
+    entry: 'Grow bag with recycled plastic (scrap)',
+    awardedTo: 'Polydime International (Pvt) Ltd',
+    image: { src: '/assets/awards/lankastar-2020-innovation.png', width: 466, height: 1000 },
+  },
+  {
+    id: 'lankastar-2020-consumer',
+    programme: 'Lanka Star',
+    year: '2020',
+    level: 'LankaStar Gold · Consumer Packaging, Flexible',
+    entry: 'Grow Bag, consumer pack',
+    awardedTo: 'Polydime International (Pvt) Ltd',
+    image: {
+      src: '/assets/awards/lankastar-2020-consumer-packaging.png',
+      width: 438,
+      height: 1000,
+    },
+  },
+  {
+    id: 'lankastar-2020-material',
+    programme: 'Lanka Star',
+    year: '2020',
+    level: 'LankaStar Gold · Packaging Material, Flexible',
+    entry: 'Grow bag with recycled plastic (scrap)',
+    awardedTo: 'Polydime International (Pvt) Ltd',
+    image: {
+      src: '/assets/awards/lankastar-2020-packaging-material.png',
+      width: 441,
+      height: 1000,
+    },
+  },
+];
+
+export const programmes = [
+  {
+    name: 'WorldStar' as const,
+    body: 'World Packaging Organisation — Award for Packaging Excellence.',
+  },
+  { name: 'AsiaStar' as const, body: 'The Asian Packaging Federation.' },
+  {
+    name: 'Lanka Star' as const,
+    body: 'Sri Lanka Packaging Awards, Sri Lanka Institute of Packaging.',
+  },
+];
+
+/** Counts for the hero, so adding a trophy above updates the page. */
+export const TROPHY_COUNT = trophies.length;
+export const PROGRAMME_COUNT = programmes.length;
+export const AWARD_YEARS = (() => {
+  const years = trophies.map((t) => Number(t.year)).sort((a, b) => a - b);
+  return `${years[0]}–${String(years[years.length - 1]).slice(2)}`;
+})();

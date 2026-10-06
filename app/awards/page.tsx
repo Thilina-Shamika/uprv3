@@ -3,6 +3,7 @@ import Reveal from '@/components/site/Reveal';
 import SiteHeader from '@/components/site/SiteHeader';
 import HomeFooter from '@/components/home/HomeFooter';
 import AwardsHero from '@/components/awards/AwardsHero';
+import TrophyCabinet from '@/components/awards/TrophyCabinet';
 import AwardWinners from '@/components/awards/AwardWinners';
 import AwardsClose from '@/components/awards/AwardsClose';
 import styles from './page.module.css';
@@ -19,6 +20,7 @@ export default function Page() {
       <div className={styles.page}>
         <SiteHeader />
         <AwardsHero />
+        <TrophyCabinet />
         <AwardWinners />
         <AwardsClose />
         <HomeFooter />

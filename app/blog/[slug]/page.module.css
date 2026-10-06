@@ -1,0 +1,164 @@
+.page {
+  /* The shared footer insets itself for the home page's fixed rail; this page
+     has no rail, so the gutter reverts to a normal page margin. */
+  --home-gutter: clamp(16px, 4vw, 52px);
+  background: var(--home-page);
+}
+
+.hero {
+  padding: clamp(44px, 6vw, 84px) clamp(18px, 4vw, 72px) clamp(32px, 4vw, 56px);
+  background:
+    radial-gradient(120% 90% at 10% 0%, #e4f1dd 0%, rgba(228, 241, 221, 0) 60%),
+    radial-gradient(70% 60% at 0% 100%, rgba(199, 242, 77, 0.22) 0%, rgba(199, 242, 77, 0) 70%),
+    linear-gradient(180deg, #eaf3e7 0%, #f6faf4 60%, var(--tint-mint) 100%);
+}
+
+.heroInner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 26px;
+  font-size: 12.5px;
+  color: var(--home-muted);
+}
+
+.crumbs a {
+  color: var(--home-muted);
+}
+
+.crumbs a:hover,
+.crumbHere {
+  color: var(--home-green);
+}
+
+.meta {
+  display: inline-flex;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--tint-lime);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--home-green);
+}
+
+.h1 {
+  margin: 20px 0 0;
+  font-size: clamp(32px, 4.4vw, 58px);
+  line-height: 1.06;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--home-ink);
+  text-wrap: balance;
+}
+
+.lede {
+  margin: 22px 0 0;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.55;
+  color: var(--home-muted-alt);
+  text-wrap: pretty;
+}
+
+.body {
+  padding: clamp(32px, 4.4vw, 64px) clamp(18px, 4vw, 72px) clamp(56px, 7vw, 100px);
+  background: var(--tint-mint);
+}
+
+.column {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.figure {
+  margin: 0 0 clamp(28px, 3.4vw, 44px);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(12, 61, 32, 0.08);
+}
+
+.figureImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.p {
+  margin: 0 0 20px;
+  font-size: clamp(16.5px, 1.3vw, 19px);
+  line-height: 1.7;
+  color: var(--home-ink);
+  text-wrap: pretty;
+}
+
+.h2 {
+  margin: clamp(34px, 4vw, 48px) 0 18px;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--home-ink);
+}
+
+.list {
+  margin: 0 0 24px;
+  padding: clamp(20px, 2.4vw, 28px) clamp(22px, 2.6vw, 32px);
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(12, 61, 32, 0.08);
+  list-style: none;
+}
+
+.listItem {
+  position: relative;
+  padding-left: 26px;
+  font-size: clamp(16px, 1.25vw, 17.5px);
+  line-height: 1.55;
+  color: var(--home-ink);
+}
+
+.listItem + .listItem {
+  margin-top: 12px;
+}
+
+.listItem::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--home-green);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(20px, 2.4vw, 32px);
+  height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(12, 61, 32, 0.2);
+  background: #ffffff;
+  color: var(--home-green-deep);
+  font-size: 15px;
+  font-weight: 500;
+  transition:
+    background-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.back:hover {
+  background: var(--home-green-deep);
+  color: #ffffff;
+}

@@ -3,7 +3,8 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
-import { categories, POST_HREF, posts } from '@/lib/blog';
+import Link from 'next/link';
+import { categories, postHref, posts } from '@/lib/blog';
 import styles from './Blog.module.css';
 
 export default function Archive() {
@@ -56,9 +57,9 @@ export default function Archive() {
 
         <div ref={listRef} className={styles.grid}>
           {posts.map((post, i) => (
-            <a
-              key={post.title}
-              href={POST_HREF}
+            <Link
+              key={post.slug}
+              href={postHref(post)}
               className={styles.post}
               hidden={category !== 'All' && post.category !== category}
               data-reveal=""
@@ -86,7 +87,7 @@ export default function Archive() {
               <span className={styles.readMore}>
                 Read article <span aria-hidden="true">→</span>
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

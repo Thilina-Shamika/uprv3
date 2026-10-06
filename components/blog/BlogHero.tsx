@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { featured, POST_HREF } from '@/lib/blog';
+import { featured, postHref } from '@/lib/blog';
 import { routes } from '@/lib/routes';
 import styles from './Blog.module.css';
 
 /** Intro on the left, the featured article on the right. */
 export default function BlogHero() {
+  const image = featured.image;
   return (
     <header id="top" className={styles.hero}>
       <div className={styles.heroInner}>
@@ -23,17 +24,21 @@ export default function BlogHero() {
           </p>
         </div>
 
-        <a href={POST_HREF} className={styles.featured}>
+        <Link href={postHref(featured)} className={styles.featured}>
           <span className={styles.featuredMedia}>
-            <Image
-              src={featured.image.src}
-              alt={featured.alt}
-              width={featured.image.width}
-              height={featured.image.height}
-              sizes="(max-width: 980px) 100vw, 620px"
-              preload
-              className={styles.cover}
-            />
+            {image ? (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                sizes="(max-width: 980px) 100vw, 620px"
+                preload
+                className={styles.cover}
+              />
+            ) : (
+              <span className={styles.placeholder}>{featured.category}</span>
+            )}
             <span className={styles.badge}>Featured</span>
           </span>
           <span className={styles.featuredBody}>
@@ -46,7 +51,7 @@ export default function BlogHero() {
               Read article <span aria-hidden="true">→</span>
             </span>
           </span>
-        </a>
+        </Link>
       </div>
     </header>
   );

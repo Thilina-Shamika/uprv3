@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { awardsIntro } from '@/lib/awards';
+import { AWARD_YEARS, PROGRAMME_COUNT, TROPHY_COUNT, awardsIntro } from '@/lib/awards';
 import { routes } from '@/lib/routes';
 import styles from './Awards.module.css';
 
 const stats = [
-  { value: '03', label: 'Award-winning products' },
-  { value: '03', label: 'International awards' },
-  { value: '2019–20', label: 'Years recognised' },
+  { value: String(TROPHY_COUNT), label: 'Awards won' },
+  { value: String(PROGRAMME_COUNT).padStart(2, '0'), label: 'Award programmes' },
+  { value: AWARD_YEARS, label: 'Years recognised' },
 ];
 
 export default function AwardsHero() {
