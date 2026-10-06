@@ -3,6 +3,7 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { ledger, summarise, tagAccent } from '@/lib/partners';
 import styles from './Partners.module.css';
@@ -12,7 +13,24 @@ const haystacks = ledger.map((p) =>
   [p.rank, p.tag, p.name, p.country, p.desc, p.num, 'kilograms'].join(' ').toLowerCase(),
 );
 
-export default function Milestones() {
+type Props = {
+  /** The home page insets content for the fixed certification rail. */
+  gutter?: boolean;
+  eyebrow?: string;
+  heading?: string;
+  lede?: string;
+  /** Optional link beside the heading, e.g. back to the partners page. */
+  action?: { href: string; label: string };
+};
+
+/** The partner ledger: summary, search, grid or list, used on both pages. */
+export default function Milestones({
+  gutter,
+  eyebrow = 'Sustainability milestones',
+  heading = 'Every kilogram, accounted for',
+  lede = 'Amount of sustainable material used to date in our production, by partner and product.',
+  action,
+}: Props = {}) {
   const [query, setQuery] = useState('');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const listRef = useRef<HTMLDivElement>(null);
@@ -38,16 +56,24 @@ export default function Milestones() {
   }, [query, view]);
 
   return (
-    <section className={styles.mint} aria-labelledby="ledger-heading">
+    <section
+      className={`${styles.mint} ${gutter ? styles.gutter : ''}`}
+      aria-labelledby="ledger-heading"
+    >
       <div className={styles.wrap}>
-        <div className={styles.sectionHead} data-reveal="">
-          <p className={styles.eyebrow}>Sustainability milestones</p>
-          <h2 id="ledger-heading" className={styles.h2}>
-            Every kilogram, accounted for
-          </h2>
-          <p className={styles.sectionLede}>
-            Amount of sustainable material used to date in our production, by partner and product.
-          </p>
+        <div className={styles.ledgerHead} data-reveal="">
+          <div>
+            <p className={styles.eyebrow}>{eyebrow}</p>
+            <h2 id="ledger-heading" className={styles.h2}>
+              {heading}
+            </h2>
+            <p className={styles.sectionLede}>{lede}</p>
+          </div>
+          {action && (
+            <Link href={action.href} className={styles.headLink}>
+              {action.label}
+            </Link>
+          )}
         </div>
 
         <div className={styles.toolbar}>

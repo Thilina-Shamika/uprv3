@@ -2,8 +2,10 @@
   position: relative;
   min-height: 100vh;
   width: 100%;
-  /* Clips the oversized blurred blobs below. */
-  overflow: hidden;
+  /* Clips the oversized blurred blobs below. `clip` rather than `hidden`:
+     hidden makes this a scroll container, which stops the hero's counter card
+     from sticking to the bottom of the screen. */
+  overflow: clip;
   background: var(--home-page);
   /* Room for the fixed certification bar on mobile. */
   padding-bottom: var(--home-page-bottom);

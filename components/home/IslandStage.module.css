@@ -11,68 +11,106 @@
 
 .island {
   display: block;
+  /* Only the artwork drops; the counter card keeps its place on the stage. */
+  margin-top: clamp(16px, 2.4vw, 36px);
   width: 100%;
   height: auto;
+  animation: islandFloat 9s ease-in-out infinite;
 }
 
-/* Tucked into the artwork's bottom-right corner, kept small and clear of the
-   island itself so only the empty water/sky at the edge is covered. */
+@keyframes islandFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+/* Sticks to the bottom of the screen while the island section is in view and
+   releases onto the artwork as the section ends. Sticky keeps it in the normal
+   flow, so it only ever moves vertically — no sideways drift at the handover.
+   The negative top margin lifts it back over the artwork it follows. */
 .card {
-  position: absolute;
-  right: clamp(0px, 1.5vw, 26px);
-  bottom: clamp(10px, 2vw, 34px);
+  position: sticky;
+  bottom: calc(var(--home-page-bottom) + clamp(16px, 2.4vw, 34px));
   z-index: 3;
-  width: clamp(210px, 19vw, 286px);
+  width: clamp(190px, 17vw, 258px);
   max-width: 100%;
-  margin: 0;
+  margin: clamp(-150px, -9vw, -96px) clamp(0px, 1.5vw, 26px) 0 auto;
 }
 
+/* Smoked green glass: the artwork reads faintly through it. The float lives
+   on the panel so the card itself stays free for the scroll fade. */
 .panel {
   position: relative;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  /* Smoked glass; the blur itself is set inline in IslandStage.tsx because the
+     CSS build drops backdrop-filter from stylesheets. */
+  background: linear-gradient(160deg, rgba(12, 61, 32, 0.58), rgba(12, 61, 32, 0.74));
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 22px;
   padding: clamp(15px, 1.5vw, 21px) clamp(16px, 1.6vw, 23px);
-  box-shadow: 0 26px 60px rgba(24, 44, 34, 0.14);
+  box-shadow:
+    0 26px 60px rgba(12, 61, 32, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  animation: cardFloat 6.5s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .count {
   margin: 0;
-  font-size: clamp(24px, 2.3vw, 34px);
+  font-size: clamp(21px, 1.95vw, 29px);
   line-height: 0.98;
   font-weight: 600;
   letter-spacing: -0.04em;
-  color: var(--home-green-deep);
+  color: #ffffff;
   font-variant-numeric: tabular-nums;
 }
 
 .unit {
-  margin: 9px 0 0;
-  font-size: clamp(12px, 1vw, 14px);
+  margin: 8px 0 0;
+  font-size: clamp(11px, 0.88vw, 12.5px);
   font-weight: 600;
   letter-spacing: 0.02em;
   /* Mixed case is deliberate — "KILOGRAMS and Counting..." is set as written. */
-  color: var(--home-green);
+  color: #ffffff;
 }
 
 .note {
-  margin: 10px 0 0;
-  font-size: clamp(12px, 0.95vw, 13.5px);
+  margin: 9px 0 0;
+  font-size: clamp(11.5px, 0.85vw, 12.5px);
   line-height: 1.45;
   font-weight: 400;
-  color: var(--home-muted);
+  color: rgba(255, 255, 255, 0.76);
   text-wrap: pretty;
 }
 
-/* Too little room to overlay without hiding the island, so it stacks under. */
-@media (max-width: 1149px) {
-  .card {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    margin: 18px 0 0;
+/* Narrow screens keep the card on the artwork, sitting low over the water so
+   the figure is on screen the moment the page loads. */
+@media (max-width: 560px) {
+
+  .panel {
+    border-radius: 18px;
+    padding: 13px 15px;
+  }
+
+  .note {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
   }
 }

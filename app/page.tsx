@@ -4,9 +4,11 @@ import Hero from '@/components/home/Hero';
 import IslandStage from '@/components/home/IslandStage';
 import Ledger from '@/components/home/Ledger';
 import Strategy from '@/components/home/Strategy';
-import PartnerLedger from '@/components/home/PartnerLedger';
+import PartnerLedger from '@/components/partners/Milestones';
+import Reveal from '@/components/site/Reveal';
 import NewsStrip from '@/components/home/NewsStrip';
 import HomeFooter from '@/components/home/HomeFooter';
+import { routes } from '@/lib/routes';
 import styles from './page.module.css';
 
 export default function Page() {
@@ -24,7 +26,17 @@ export default function Page() {
         <IslandStage />
         <Ledger />
         <Strategy />
-        <PartnerLedger />
+        {/* The ledger marks its parts with data-reveal, which start hidden; the
+            home page has no page-level Reveal, so it gets its own here. */}
+        <Reveal>
+          <PartnerLedger
+            gutter
+            eyebrow="Our Partners"
+            heading="The programmes behind the numbers"
+            lede="Amount of sustainable material used to date in our production, by partner and product."
+            action={{ href: routes.partners, label: 'See the full ledger' }}
+          />
+        </Reveal>
         <NewsStrip />
         <HomeFooter />
       </div>

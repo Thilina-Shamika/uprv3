@@ -285,6 +285,38 @@
 }
 
 /* ---- Ledger ---- */
+/* The home page insets its left edge for the fixed certification rail. */
+.gutter {
+  padding-left: var(--home-gutter);
+}
+
+.ledgerHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 32px;
+  max-width: 1240px;
+}
+
+.ledgerHead .sectionLede {
+  margin-top: 16px;
+}
+
+.headLink {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--home-green-mid);
+  border-bottom: 1.5px solid rgba(26, 107, 52, 0.35);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+
+.headLink:hover {
+  color: var(--home-green-mid);
+  border-bottom-color: var(--home-green-mid);
+}
+
 .toolbar {
   display: flex;
   flex-wrap: wrap;

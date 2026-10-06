@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
-import { gsap } from '@/lib/gsap';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { TOTAL_KG } from '@/lib/partners';
 import styles from './IslandStage.module.css';
 
@@ -19,6 +19,13 @@ export default function IslandStage() {
       if (reduced) {
         if (countRef.current) countRef.current.textContent = format(TOTAL_KG);
         return;
+      }
+
+      // The artwork sets the section's height, so every trigger below it is
+      // re-measured once the image has loaded.
+      const art = stageRef.current?.querySelector('img');
+      if (art && !art.complete) {
+        art.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
       }
 
       // The hero tally runs on load, not on scroll — it is already in view.
@@ -49,7 +56,13 @@ export default function IslandStage() {
         preload
       />
       <div className={styles.card}>
-        <div className={styles.panel}>
+        <div
+          className={styles.panel}
+          style={{
+            backdropFilter: 'blur(16px) saturate(1.3)',
+            WebkitBackdropFilter: 'blur(16px) saturate(1.3)',
+          }}
+        >
           <p ref={countRef} className={styles.count}>
             0
           </p>
