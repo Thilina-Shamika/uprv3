@@ -6,6 +6,42 @@
   padding-left: var(--home-gutter);
 }
 
+/* The journal strip below the news strip, on the deep green band. */
+.sectionAlt {
+  composes: section;
+  background: var(--band-green);
+  color: #ffffff;
+}
+
+.sectionAlt .eyebrow,
+.sectionAlt .meta,
+.sectionAlt .more {
+  color: #c7f24d;
+}
+
+.sectionAlt .title,
+.sectionAlt .cardTitle {
+  color: #ffffff;
+}
+
+.sectionAlt .excerpt {
+  color: #cfe3d6;
+}
+
+.sectionAlt .media {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sectionAlt .headLink {
+  color: #c7f24d;
+  border-bottom-color: rgba(199, 242, 77, 0.4);
+}
+
+.sectionAlt .headLink:hover {
+  color: #c7f24d;
+  border-bottom-color: #c7f24d;
+}
+
 .inner {
   /* Sits above the decorative layer behind the section. */
   position: relative;

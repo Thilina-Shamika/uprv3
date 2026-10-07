@@ -7,6 +7,7 @@ import Strategy from '@/components/home/Strategy';
 import PartnerLedger from '@/components/partners/Milestones';
 import Reveal from '@/components/site/Reveal';
 import NewsStrip from '@/components/home/NewsStrip';
+import BlogStrip from '@/components/home/BlogStrip';
 import HomeFooter from '@/components/home/HomeFooter';
 import { routes } from '@/lib/routes';
 import styles from './page.module.css';
@@ -26,6 +27,8 @@ export default function Page() {
         <IslandStage />
         <Ledger />
         <Strategy />
+        <NewsStrip />
+        <BlogStrip />
         {/* The ledger marks its parts with data-reveal, which start hidden; the
             home page has no page-level Reveal, so it gets its own here. */}
         <Reveal>
@@ -37,7 +40,6 @@ export default function Page() {
             action={{ href: routes.partners, label: 'See the full ledger' }}
           />
         </Reveal>
-        <NewsStrip />
         <HomeFooter />
       </div>
     </>
